@@ -23,7 +23,7 @@
             </baseComponent>
           </section>
           <section class="text">text</section>
-          <section class="content">content</section>
+          <section class="content">{{ posts.title }}</section>
         </div>
       </div>
       <!-- <div class="block w-screen spacer"></div> -->
@@ -38,6 +38,13 @@ import baseComponent from '@/components/baseComponent.vue'
 export default {
   components: {
     baseComponent,
+  },
+  async asyncData({ $content }) {
+    const posts = await $content('hello').fetch()
+
+    return {
+      posts,
+    }
   },
   data() {
     return {
@@ -188,6 +195,7 @@ export default {
   color: aqua;
   background-color: #db6b0e;
   grid-area: content;
+  font-size: 12px;
 }
 
 .equation {
