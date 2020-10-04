@@ -138,6 +138,13 @@ export default {
     })
     // gsap.set('.new_page', { force3D: true })
   },
+  head() {
+    return {
+      script: [
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+      ],
+    }
+  },
 }
 </script>
 
