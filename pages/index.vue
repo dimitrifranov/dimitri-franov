@@ -23,7 +23,7 @@
             </baseComponent>
           </section>
           <section class="text">text</section>
-          <section class="content">{{ posts.title }}</section>
+          <section class="content">{{ posts[0].body }}</section>
         </div>
       </div>
       <!-- <div class="block w-screen spacer"></div> -->
@@ -40,7 +40,7 @@ export default {
     baseComponent,
   },
   async asyncData({ $content }) {
-    const posts = await $content('hello').fetch()
+    const posts = await $content('blog').fetch()
 
     return {
       posts,

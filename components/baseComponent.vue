@@ -10,7 +10,7 @@
       <slot />
     </section>
     <section class="text">text</section>
-    <section class="content">{{ message }}</section>
+    <section class="content"></section>
   </div>
 </template>
 
@@ -65,7 +65,7 @@ export default {
 
 .new_page {
   color: black;
-  filter: blur(1px);
+  /* filter: blur(1px); */
   /* background-color: #0d1f2f; */
   transform-origin: top right;
   /* position: relative; */
