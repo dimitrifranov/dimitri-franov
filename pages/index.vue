@@ -16,7 +16,9 @@
                   ><baseComponent
                     ><baseComponent
                       ><baseComponent
-                        ><baseComponent></baseComponent></baseComponent></baseComponent></baseComponent></baseComponent
+                        ><baseComponent
+                          message="gloon"
+                        ></baseComponent></baseComponent></baseComponent></baseComponent></baseComponent
               ></baseComponent>
             </baseComponent>
           </section>
@@ -88,6 +90,7 @@ export default {
       tl.to(sections[id + 1], {
         scale: 2 + 1 / 1.61803,
         opacity: 1,
+        css: { filter: 'blur(0' },
         // duration: 3,
       })
       tl.to(

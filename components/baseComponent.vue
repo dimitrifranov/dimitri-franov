@@ -10,12 +10,19 @@
       <slot />
     </section>
     <section class="text">text</section>
-    <section class="content">content</section>
+    <section class="content">{{ message }}</section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    message: {
+      type: String,
+      default: '',
+    },
+  },
+}
 </script>
 
 <style scoped>
@@ -37,7 +44,9 @@ export default {}
 }
 
 .content {
-  color: aqua;
+  font-size: 1px;
+  /* color: aqua; */
+  color: black;
   background-color: #db6b0e;
   grid-area: content;
 }
@@ -56,6 +65,7 @@ export default {}
 
 .new_page {
   color: black;
+  filter: blur(1px);
   /* background-color: #0d1f2f; */
   transform-origin: top right;
   /* position: relative; */
