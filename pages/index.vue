@@ -11,7 +11,7 @@
           </section>
           <section class="new_page">
             <baseComponent>
-              <template v-slot:next_page>
+              <!-- <template v-slot:next_page>
                 <baseComponent>
                   <template v-slot:next_page>
                     <baseComponent>
@@ -21,7 +21,7 @@
                     </baseComponent>
                   </template>
                 </baseComponent>
-              </template>
+              </template> -->
             </baseComponent>
           </section>
           <section class="text">text</section>
@@ -158,9 +158,10 @@ export default {
       anticipatePin: 1,
       snap: {
         // snapTo: 1 / (pages.length - 1), // snap to the closest label in the timeline
+        // snapTo: [0, 0.1, 0.5, 0.8, 1], // snap to the closest label in the timeline
         snapTo: 'labels', // snap to the closest label in the timeline
         duration: { min: 0.5, max: 1 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        // delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
       end: () => '+=' + pages.length * this.windowWidth,
@@ -207,6 +208,7 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
+  font-size: 5rem;
   /* position: relative; */
   grid-area: title;
 }

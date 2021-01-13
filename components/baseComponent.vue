@@ -1,7 +1,7 @@
 <template>
-  <div class="contain new_page">
+  <div id="coding" class="contain new_page page">
     <section class="title">
-      <h1>Dimitri Franov</h1>
+      <h1>{{ width }}</h1>
     </section>
     <section class="equation">
       <h2>equation</h2>
@@ -22,6 +22,21 @@ export default {
       default: '',
     },
   },
+  data() {
+    return {
+      width: 0,
+      height: 0,
+    }
+  },
+  mounted() {
+    this.width = document.getElementById('coding').offsetWidth
+    this.height = document.getElementById('coding').offsetHeight
+    window.onscroll = () => {
+      this.width = document.getElementById('coding').offsetWidth
+      this.height = document.getElementById('coding').offsetHeight
+      console.log(this.width, this.height)
+    }
+  },
 }
 </script>
 
@@ -39,6 +54,7 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
+  font-size: 5px;
   /* position: relative; */
   grid-area: title;
 }
