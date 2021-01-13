@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex justify-center background">
-      <div class="containing new_page">
+      <div class="containing page">
         <div class="contain" :style="windowStyle">
           <section class="title">
             <h1>Dimitri Franov</h1>
@@ -9,21 +9,13 @@
           <section class="equation">
             <h2>equation</h2>
           </section>
-          <section class="">
+          <section class="new_page">
             <baseComponent>
-              <baseComponent
-                ><baseComponent
-                  ><baseComponent
-                    ><baseComponent
-                      ><baseComponent
-                        ><baseComponent
-                          message="gloon"
-                        ></baseComponent></baseComponent></baseComponent></baseComponent></baseComponent
-              ></baseComponent>
+              <baseComponent></baseComponent>
             </baseComponent>
           </section>
           <section class="text">text</section>
-          <section class="content">{{ posts[0].body }}</section>
+          <div class="content"></div>
         </div>
       </div>
       <!-- <div class="block w-screen spacer"></div> -->
@@ -53,6 +45,9 @@ export default {
     }
   },
   computed: {
+    post() {
+      return this.posts[1]
+    },
     isTooWide() {
       if (this.windowHeight * 1.61803 < this.windowWidth) return true
       else return false
@@ -91,23 +86,37 @@ export default {
     gsap.defaults({ duration: 1, ease: 'none' })
     gsap.registerPlugin(scrollTrigger)
     const tl = gsap.timeline()
-    const sections = gsap.utils.toArray('.new_page')
-    for (const id in sections) {
+    const pages = gsap.utils.toArray('.page')
+    for (const id in pages) {
       tl.addLabel(id)
-      tl.to(sections[id + 1], {
-        scale: 2 + 1 / 1.61803,
-        opacity: 1,
-        css: { filter: 'blur(0' },
-        // duration: 3,
-      })
+      // console.log(tl.previousLabel(id + 0.1))
+      // tl.to(pages[id + 1], {
+      //   scale: 1.61803 ** 2,
+      //   opacity: 1,
+      //   // css: { filter: 'blur(0' },
+      //   // duration: 3,
+      // })
+      // console.log(pages[id].querySelector('.content'))
       tl.to(
-        sections[id],
+        pages[id],
         {
-          scale: 2 + 1 / 1.61803,
+          scale: 1.61803 ** 2,
           // opacity: 0,
-        },
-        '<'
+        }
+        // '<'
       )
+      if (pages[id - 1]) {
+        tl.to(
+          pages[id - 1].querySelector('.content'),
+          {
+            // scale: 2 * 1.61803 ** 2,
+            opacity: 0,
+            duration: 0.1,
+            ease: 'none',
+          },
+          '<'
+        )
+      }
     }
     // const proxy = { blur: 0 }
     // // const blurSetter = gsap.quickSetter('.new_page', 'filter': 'blur', 'px') // fast
@@ -116,7 +125,7 @@ export default {
     scrollTrigger.create({
       animation: tl,
       // onUpdate: (self) => {
-      //   // console.log(self.progress)
+      //   console.log(self.progress)
       //   const blur = clamp(Math.abs(self.getVelocity() / 300))
       //   // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
       //   if (blur > proxy.blur) {
@@ -127,23 +136,24 @@ export default {
       //       ease: 'power3',
       //       overwrite: true,
       //       onUpdate: () =>
-      //         gsap.set(sections, {
+      //         gsap.set(pages, {
       //           filter: 'blur(' + proxy.blur.toString() + 'px)',
       //         }),
       //     })
       //   }
       // },
       trigger: '.background',
-      scrub: true,
+      scrub: 0.5,
       pin: true,
       anticipatePin: 1,
       snap: {
+        // snapTo: 1 / (pages.length - 1), // snap to the closest label in the timeline
         snapTo: 'labels', // snap to the closest label in the timeline
         duration: { min: 0.5, max: 1 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        // delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
-      end: () => '+=' + sections.length * this.windowWidth,
+      end: () => '+=' + pages.length * this.windowWidth,
       // end: '+=10000',
     })
     // gsap.set('.new_page', { force3D: true })
@@ -208,6 +218,10 @@ export default {
   color: beige;
   background-color: #3b6670;
   grid-area: text;
+}
+
+.page {
+  transform-origin: top right;
 }
 
 .new_page {

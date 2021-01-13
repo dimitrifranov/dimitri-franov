@@ -1,16 +1,18 @@
 <template>
-  <div class="contain new_page">
-    <section class="title">
-      <h1>Dimitri Franov</h1>
-    </section>
-    <section class="equation">
-      <h2>equation</h2>
-    </section>
-    <section class="">
-      <slot />
-    </section>
-    <section class="text">text</section>
-    <section class="content"></section>
+  <div class="page">
+    <div class="contain">
+      <section class="title">
+        <!-- <h1>Dimitri Franov</h1> -->
+      </section>
+      <section class="equation">
+        <!-- <h2>equation</h2> -->
+      </section>
+      <section class="new_page">
+        <slot />
+      </section>
+      <section class="text"></section>
+      <section class="content"></section>
+    </div>
   </div>
 </template>
 
@@ -62,11 +64,16 @@ export default {
   background-color: #3b6670;
   grid-area: text;
 }
+.page {
+  width: 100%;
+  height: 100%;
+  transform-origin: top right;
+}
 
 .new_page {
   color: black;
   /* filter: blur(1px); */
-  /* background-color: #0d1f2f; */
+  background-color: black;
   transform-origin: top right;
   /* position: relative; */
   /* padding-top: 61.8%; */
