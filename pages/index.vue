@@ -11,15 +11,17 @@
           </section>
           <section class="">
             <baseComponent>
-              <baseComponent
-                ><baseComponent
-                  ><baseComponent
-                    ><baseComponent
-                      ><baseComponent
-                        ><baseComponent
-                          message="gloon"
-                        ></baseComponent></baseComponent></baseComponent></baseComponent></baseComponent
-              ></baseComponent>
+              <template v-slot:next_page>
+                <baseComponent>
+                  <template v-slot:next_page>
+                    <baseComponent>
+                      <template v-slot:next_page>
+                        <baseComponent></baseComponent>
+                      </template>
+                    </baseComponent>
+                  </template>
+                </baseComponent>
+              </template>
             </baseComponent>
           </section>
           <section class="text">text</section>

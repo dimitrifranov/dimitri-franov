@@ -6,8 +6,8 @@
     <section class="equation">
       <h2>equation</h2>
     </section>
-    <section class="">
-      <slot />
+    <section class="next_page">
+      <slot name="next_page" />
     </section>
     <section class="text">text</section>
     <section class="content"></section>
