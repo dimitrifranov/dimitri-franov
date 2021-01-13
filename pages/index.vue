@@ -11,7 +11,17 @@
           </section>
           <section class="new_page">
             <baseComponent>
-              <baseComponent></baseComponent>
+              <template v-slot:next_page>
+                <baseComponent>
+                  <template v-slot:next_page>
+                    <baseComponent>
+                      <template v-slot:next_page>
+                        <baseComponent></baseComponent>
+                      </template>
+                    </baseComponent>
+                  </template>
+                </baseComponent>
+              </template>
             </baseComponent>
           </section>
           <section class="text">text</section>

@@ -1,18 +1,16 @@
 <template>
-  <div class="page">
-    <div class="contain">
-      <section class="title">
-        <!-- <h1>Dimitri Franov</h1> -->
-      </section>
-      <section class="equation">
-        <!-- <h2>equation</h2> -->
-      </section>
-      <section class="new_page">
-        <slot />
-      </section>
-      <section class="text"></section>
-      <section class="content"></section>
-    </div>
+  <div class="contain new_page">
+    <section class="title">
+      <h1>Dimitri Franov</h1>
+    </section>
+    <section class="equation">
+      <h2>equation</h2>
+    </section>
+    <section class="next_page">
+      <slot name="next_page" />
+    </section>
+    <section class="text">text</section>
+    <section class="content"></section>
   </div>
 </template>
 
