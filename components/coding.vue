@@ -1,6 +1,6 @@
 <template>
   <div id="coding" class="contain new_page page">
-    <section class="title">
+    <section class="title" :style="{ fontSize: fontSize + 'px' }">
       <h1>{{ width }}</h1>
     </section>
     <section class="equation">
@@ -28,14 +28,23 @@ export default {
       height: 0,
     }
   },
+  computed: {
+    fontSize() {
+      return this.height / 10
+    },
+  },
   mounted() {
-    this.width = document.getElementById('coding').offsetWidth
-    this.height = document.getElementById('coding').offsetHeight
-    window.onscroll = () => {
-      this.width = document.getElementById('coding').offsetWidth
-      this.height = document.getElementById('coding').offsetHeight
-      console.log(this.width, this.height)
-    }
+    setTimeout(() => {
+      this.width = document.getElementById('coding').clientWidth
+      this.height = document.getElementById('coding').clientHeight
+      window.addEventListener('resize', () => {
+        setTimeout(() => {
+          this.width = document.getElementById('coding').clientWidth
+          this.height = document.getElementById('coding').clientHeight
+          console.log(this.width, this.height)
+        }, 1)
+      })
+    }, 1)
   },
 }
 </script>

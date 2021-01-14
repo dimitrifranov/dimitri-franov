@@ -10,7 +10,7 @@
             <h2>equation</h2>
           </section>
           <section class="new_page">
-            <baseComponent>
+            <coding>
               <!-- <template v-slot:next_page>
                 <baseComponent>
                   <template v-slot:next_page>
@@ -22,9 +22,11 @@
                   </template>
                 </baseComponent>
               </template> -->
-            </baseComponent>
+            </coding>
           </section>
-          <section class="text">text</section>
+          <section class="text">
+            <nuxt-content :document="post"></nuxt-content>
+          </section>
           <div class="content"></div>
         </div>
       </div>
@@ -36,10 +38,10 @@
 <script>
 import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
-import baseComponent from '@/components/baseComponent.vue'
+import coding from '@/components/coding.vue'
 export default {
   components: {
-    baseComponent,
+    coding,
   },
   async asyncData({ $content }) {
     const posts = await $content('blog').fetch()
@@ -180,6 +182,9 @@ export default {
 </script>
 
 <style scoped>
+.nuxt-content {
+  font-size: 10px;
+}
 /* .contain {
   height: 100vh;
   margin: 0;
