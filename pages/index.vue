@@ -189,6 +189,7 @@ export default {
   height: 400px;
 }
 .background {
+  /* overflow: scroll; */
   background-color: #efe2bf;
   height: 100vh;
   width: 100vw;
@@ -245,5 +246,9 @@ export default {
   /* padding-top: 61.8%; */
   /* opacity: 0.8; */
   grid-area: new_page;
+}
+html,
+body {
+  /* overflow: hidden; */
 }
 </style>
