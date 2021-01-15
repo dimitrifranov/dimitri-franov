@@ -25,7 +25,10 @@
             </coding>
           </section>
           <section class="text">
-            <nuxt-content :document="post"></nuxt-content>
+            <li v-for="post of posts" :key="post.slug" class="prose">
+              <!-- <h2>{{ post.title }}</h2> -->
+              <nuxt-content :document="post"></nuxt-content>
+            </li>
           </section>
           <div class="content"></div>
         </div>
@@ -57,9 +60,9 @@ export default {
     }
   },
   computed: {
-    post() {
-      return this.posts[1]
-    },
+    // post() {
+    //   return this.posts[1]
+    // },
     isTooWide() {
       if (this.windowHeight * 1.61803 < this.windowWidth) return true
       else return false
@@ -182,9 +185,6 @@ export default {
 </script>
 
 <style scoped>
-.nuxt-content {
-  font-size: 10px;
-}
 /* .contain {
   height: 100vh;
   margin: 0;
@@ -233,6 +233,7 @@ export default {
 }
 
 .text {
+  /* font-size: 20px; */
   color: beige;
   background-color: #3b6670;
   grid-area: text;
