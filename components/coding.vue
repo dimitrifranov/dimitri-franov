@@ -41,7 +41,7 @@ export default {
         setTimeout(() => {
           this.width = document.getElementById('coding').clientWidth
           this.height = document.getElementById('coding').clientHeight
-          console.log(this.width, this.height)
+          // console.log(this.width, this.height)
         }, 1)
       })
     }, 1)

@@ -25,10 +25,10 @@
             </coding>
           </section>
           <section class="text">
-            <li v-for="post of posts" :key="post.slug" class="prose">
-              <!-- <h2>{{ post.title }}</h2> -->
+            <!-- <li v-for="post of posts" :key="post.slug" class="prose font-red">
+              <h2>{{ post.title }}</h2>
               <nuxt-content :document="post"></nuxt-content>
-            </li>
+            </li> -->
           </section>
           <div class="content"></div>
         </div>
@@ -234,7 +234,6 @@ export default {
 
 .text {
   /* font-size: 20px; */
-  color: beige;
   background-color: #3b6670;
   grid-area: text;
 }
