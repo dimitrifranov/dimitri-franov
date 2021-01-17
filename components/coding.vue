@@ -1,6 +1,6 @@
 <template>
   <div id="coding" class="contain new_page page">
-    <section class="title" :style="{ fontSize: fontSize + 'px' }">
+    <section class="title" :style="{ fontSize: height / 10 + 'px' }">
       <h1>{{ width }}</h1>
     </section>
     <section class="equation">

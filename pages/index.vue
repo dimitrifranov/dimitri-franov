@@ -1,10 +1,15 @@
 <template>
   <div>
+    <!-- <canvas
+      id="background"
+      class="fixed w-screen h-screen top-0 bottom-0"
+    ></canvas> -->
+    <background />
     <div class="flex justify-center background">
       <div class="containing page">
-        <div class="contain" :style="windowStyle">
-          <section class="title">
-            <h1>Dimitri Franov</h1>
+        <div id="home" class="contain" :style="windowStyle">
+          <section :style="{ fontSize: height / 10 + 'px' }" class="title">
+            <h1>{{ height }}</h1>
           </section>
           <section class="equation">
             <h2>equation</h2>
@@ -42,9 +47,11 @@
 import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
 import coding from '@/components/coding.vue'
+import Background from '~/components/background.vue'
 export default {
   components: {
     coding,
+    Background,
   },
   async asyncData({ $content }) {
     const posts = await $content('blog').fetch()
@@ -55,6 +62,8 @@ export default {
   },
   data() {
     return {
+      width: 0,
+      height: 0,
       windowWidth: 0,
       windowHeight: 0,
     }
@@ -73,8 +82,17 @@ export default {
     phiHeight() {
       return this.windowWidth / 1.61803
     },
+    phiMobileHeight() {
+      return this.windowWidth * 1.61803
+    },
     windowStyle() {
-      if (this.isTooWide)
+      if (this.windowWidth < 640) {
+        return {
+          width: '100vw',
+          height: this.phiMobileHeight + 'px',
+          fontSize: '0.001vw',
+        }
+      } else if (this.isTooWide)
         return {
           height: '100vh',
           width: this.phiWidth + 'px',
@@ -97,6 +115,22 @@ export default {
       this.windowWidth = window.innerWidth
       this.windowHeight = window.innerHeight
     }
+    setTimeout(() => {
+      this.width = document.getElementById('home').clientWidth
+      this.height = document.getElementById('home').clientHeight
+      window.addEventListener('resize', () => {
+        setTimeout(() => {
+          this.width = document.getElementById('home').clientWidth
+          this.height = document.getElementById('home').clientHeight
+          // console.log(this.width, this.height)
+        }, 1)
+      })
+    }, 1)
+
+    // const canvas = document.getElementById('background')
+    // const ctx = canvas.getContext('2d')
+    // ctx.fillStyle = 'blue'
+    // ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     gsap.defaults({ duration: 1, ease: 'none' })
     gsap.registerPlugin(scrollTrigger)
@@ -120,18 +154,18 @@ export default {
         }
         // '<'
       )
-      if (pages[id - 1]) {
-        tl.to(
-          pages[id - 1].querySelector('.content'),
-          {
-            // scale: 2 * 1.61803 ** 2,
-            opacity: 0,
-            duration: 0.1,
-            ease: 'none',
-          },
-          '<'
-        )
-      }
+      // if (pages[id - 1]) {
+      //   tl.to(
+      //     pages[id - 1].querySelector('.content'),
+      //     {
+      //       // scale: 2 * 1.61803 ** 2,
+      //       opacity: 0,
+      //       duration: 0.1,
+      //       ease: 'none',
+      //     },
+      //     '<'
+      //   )
+      // }
     }
     // const proxy = { blur: 0 }
     // // const blurSetter = gsap.quickSetter('.new_page', 'filter': 'blur', 'px') // fast
@@ -185,31 +219,41 @@ export default {
 </script>
 
 <style scoped>
-/* .contain {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-} */
 .spacer {
   height: 400px;
 }
 .background {
   /* overflow: scroll; */
-  background-color: #efe2bf;
+  /* background-color: #efe2bf; */
   height: 100vh;
   width: 100vw;
   transform-origin: top right;
 }
+@media only screen and (min-width: 640px) {
+  .contain {
+    /* width: 100%; */
+    /* height: 100%; */
+    display: grid;
+    grid-template-columns: 1.61803fr 1fr 1.61803fr;
+    grid-template-rows: 1fr 1.61803fr;
+    grid-template-areas:
+      'title equation new_page'
+      'text text content';
+  }
+}
 
-.contain {
-  /* width: 100%; */
-  /* height: 100%; */
-  display: grid;
-  grid-template-columns: 1.61803fr 1fr 1.61803fr;
-  grid-template-rows: 1fr 1.61803fr;
-  grid-template-areas:
-    'title equation new_page'
-    'text text content';
+@media only screen and (max-width: 640px) {
+  .contain {
+    /* width: 100%; */
+    /* height: 100%; */
+    display: grid;
+    grid-template-columns: 1.61803fr 1fr;
+    grid-template-rows: 1.61803fr 1fr 1.61803fr;
+    grid-template-areas:
+      'title new_page'
+      'text equation'
+      'text content';
+  }
 }
 .title {
   color: #000000;
