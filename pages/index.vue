@@ -16,17 +16,13 @@
           </section>
           <section class="new_page">
             <coding>
-              <!-- <template v-slot:next_page>
-                <baseComponent>
+              <template v-slot:next_page>
+                <photography>
                   <template v-slot:next_page>
-                    <baseComponent>
-                      <template v-slot:next_page>
-                        <baseComponent></baseComponent>
-                      </template>
-                    </baseComponent>
+                    <physics></physics>
                   </template>
-                </baseComponent>
-              </template> -->
+                </photography>
+              </template>
             </coding>
           </section>
           <section class="text">
@@ -48,10 +44,14 @@ import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
 import coding from '@/components/coding.vue'
 import Background from '~/components/background.vue'
+import Photography from '~/components/photography.vue'
+import physics from '~/components/physics.vue'
 export default {
   components: {
     coding,
     Background,
+    Photography,
+    physics,
   },
   async asyncData({ $content }) {
     const posts = await $content('blog').fetch()
@@ -200,7 +200,7 @@ export default {
         // snapTo: [0, 0.1, 0.5, 0.8, 1], // snap to the closest label in the timeline
         snapTo: 'labels', // snap to the closest label in the timeline
         duration: { min: 0.5, max: 1 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        delay: 0.7, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
       end: () => '+=' + pages.length * this.windowWidth,

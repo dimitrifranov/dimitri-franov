@@ -1,25 +1,29 @@
 <template>
-  <div id="coding" class="contain new_page page">
+  <div :id="pk" class="contain new_page page">
     <section class="title" :style="{ fontSize: height / 10 + 'px' }">
-      <h1>{{ width }}</h1>
+      <slot name="title" />
     </section>
     <section class="equation">
-      <h2>equation</h2>
+      <slot name="equation" />
     </section>
     <section class="next_page">
       <slot name="next_page" />
     </section>
-    <section class="text">text</section>
-    <section class="content"></section>
+    <section class="text">
+      <slot name="text" />
+    </section>
+    <section class="content">
+      <slot name="content" />
+    </section>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    message: {
+    pk: {
       type: String,
-      default: '',
+      default: 'index',
     },
   },
   data() {
@@ -28,20 +32,15 @@ export default {
       height: 0,
     }
   },
-  computed: {
-    fontSize() {
-      return this.height / 10
-    },
-  },
   mounted() {
+    const pk = this.pk
     setTimeout(() => {
-      this.width = document.getElementById('coding').clientWidth
-      this.height = document.getElementById('coding').clientHeight
+      this.width = document.getElementById(pk).clientWidth
+      this.height = document.getElementById(pk).clientHeight
       window.addEventListener('resize', () => {
         setTimeout(() => {
-          this.width = document.getElementById('coding').clientWidth
-          this.height = document.getElementById('coding').clientHeight
-          // console.log(this.width, this.height)
+          this.width = document.getElementById(pk).clientWidth
+          this.height = document.getElementById(pk).clientHeight
         }, 1)
       })
     }, 1)
@@ -63,7 +62,7 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
-  font-size: 5px;
+  /* font-size: 5px; */
   /* position: relative; */
   grid-area: title;
 }
