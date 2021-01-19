@@ -8,11 +8,27 @@
     <div class="flex justify-center background">
       <div class="containing page">
         <div id="home" class="contain" :style="windowStyle">
-          <section :style="{ fontSize: height / 10 + 'px' }" class="title">
-            <h1>{{ height }}</h1>
-          </section>
-          <section class="equation">
-            <h2>equation</h2>
+          <header
+            :style="{ fontSize: height / 19 + 'px' }"
+            class="title font-display center-items"
+          >
+            <img
+              src="logo.png"
+              alt="logo"
+              class="h-32 sm:h-40"
+              :style="{ height: height / 6 + 'px' }"
+            />
+            <h1 class="leading-none">
+              <p class="font-semibold">DIMITRI</p>
+              <p class="font-light">FRANOV</p>
+            </h1>
+          </header>
+          <section class="equation center-items">
+            <img
+              src="equation.png"
+              alt="equation"
+              :style="{ height: height / 6 + 'px' }"
+            />
           </section>
           <section class="new_page">
             <coding>
@@ -26,10 +42,23 @@
             </coding>
           </section>
           <section class="text">
-            <!-- <li v-for="post of posts" :key="post.slug" class="prose font-red">
-              <h2>{{ post.title }}</h2>
-              <nuxt-content :document="post"></nuxt-content>
-            </li> -->
+            <article class="prose lg:prose-lg mx-20 my-20 overflow-hidden">
+              <h2>Hallo Ich bin Dimitri</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet.
+              </p>
+            </article>
           </section>
           <div class="content"></div>
         </div>
@@ -199,8 +228,8 @@ export default {
         // snapTo: 1 / (pages.length - 1), // snap to the closest label in the timeline
         // snapTo: [0, 0.1, 0.5, 0.8, 1], // snap to the closest label in the timeline
         snapTo: 'labels', // snap to the closest label in the timeline
-        duration: { min: 0.5, max: 1 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-        delay: 0.7, // wait 0.2 seconds from the last scroll event before doing the snapping
+        duration: 0.2, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
       end: () => '+=' + pages.length * this.windowWidth,
@@ -258,7 +287,7 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
-  font-size: 5rem;
+  /* font-size: 5rem; */
   /* position: relative; */
   grid-area: title;
 }
@@ -295,9 +324,5 @@ export default {
   /* padding-top: 61.8%; */
   /* opacity: 0.8; */
   grid-area: new_page;
-}
-html,
-body {
-  /* overflow: hidden; */
 }
 </style>

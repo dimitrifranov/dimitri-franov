@@ -1,6 +1,6 @@
 <template>
   <baseComponent pk="physics">
-    <template v-slot:title>Hallo</template>
+    <template v-slot:title>PHYSICS</template>
   </baseComponent>
 </template>
 

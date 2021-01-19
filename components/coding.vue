@@ -1,7 +1,10 @@
 <template>
   <div id="coding" class="contain new_page page">
-    <section class="title" :style="{ fontSize: height / 10 + 'px' }">
-      <h1>{{ width }}</h1>
+    <section
+      class="title center-items font-display"
+      :style="{ fontSize: height / 16 + 'px' }"
+    >
+      <h1>CODING</h1>
     </section>
     <section class="equation">
       <h2>equation</h2>

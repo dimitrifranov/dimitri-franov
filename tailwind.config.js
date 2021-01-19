@@ -15,6 +15,21 @@ module.exports = {
       darkBlue: '#0d1f2f',
       blue: '#3b6670',
     },
+    fontFamily: {
+      display: ['Montserrat'],
+    },
+    extend: {
+      spacing: {
+        half: '50%',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#ffff',
+          },
+        },
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }

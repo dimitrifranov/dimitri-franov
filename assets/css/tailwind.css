@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .center-items {
+    @apply flex justify-center items-center;
+  }
+
+  button:focus,
+  input:focus {
+    @apply outline-none;
+  }
+
+  input,
+  textarea,
+  button,
+  select,
+  nuxt-link,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 400;
+    src: url(/fonts/Montserrat/Montserrat-Regular.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 600;
+    src: url(/fonts/Montserrat/Montserrat-SemiBold.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 300;
+    src: url(/fonts/Montserrat/Montserrat-Light.ttf) format('ttf');
+  }
+  /* @font-face {
+    font-family: Proxima Nova;
+    font-weight: 500;
+    src: url(/fonts/proxima-nova/500-medium.woff) format("woff");
+  } */
+}

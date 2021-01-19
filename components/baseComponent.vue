@@ -1,6 +1,9 @@
 <template>
   <div :id="pk" class="contain new_page page">
-    <section class="title" :style="{ fontSize: height / 10 + 'px' }">
+    <section
+      class="title center-items font-display"
+      :style="{ fontSize: height / 16 + 'px' }"
+    >
       <slot name="title" />
     </section>
     <section class="equation">
