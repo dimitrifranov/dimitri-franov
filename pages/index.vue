@@ -51,13 +51,13 @@
                 justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
                 takimata sanctus est Lorem ipsum dolor sit amet.
               </p>
-              <p>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
                 justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
                 takimata sanctus est Lorem ipsum dolor sit amet.
-              </p>
+              </p> -->
             </article>
           </section>
           <div class="content"></div>
@@ -165,6 +165,7 @@ export default {
     gsap.registerPlugin(scrollTrigger)
     const tl = gsap.timeline()
     const pages = gsap.utils.toArray('.page')
+    let scale = 2.61803
     for (const id in pages) {
       tl.addLabel(id)
       // console.log(tl.previousLabel(id + 0.1))
@@ -176,21 +177,22 @@ export default {
       // })
       // console.log(pages[id].querySelector('.content'))
       tl.to(
-        pages[id],
+        pages[0],
         {
-          scale: 1.61803 ** 2,
+          scale,
           // opacity: 0,
         }
         // '<'
       )
+      scale *= 2.61802
       // if (pages[id - 1]) {
       //   tl.to(
-      //     pages[id - 1].querySelector('.content'),
+      //     pages[id - 1],
       //     {
-      //       // scale: 2 * 1.61803 ** 2,
-      //       opacity: 0,
-      //       duration: 0.1,
-      //       ease: 'none',
+      //       scale: 2 * 1.61803 ** 2,
+      //       // opacity: 0,
+      //       // duration: 0.1,
+      //       // ease: 'none',
       //     },
       //     '<'
       //   )

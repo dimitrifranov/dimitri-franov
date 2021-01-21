@@ -2,7 +2,7 @@
   <div :id="pk" class="contain new_page page">
     <section
       class="title center-items font-display"
-      :style="{ fontSize: height / 16 + 'px' }"
+      :style="{ fontSize: height / 20 + 'px' }"
     >
       <slot name="title" />
     </section>
