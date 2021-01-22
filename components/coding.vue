@@ -1,109 +1,19 @@
 <template>
-  <div id="coding" class="contain new_page page">
-    <section
-      class="title center-items font-display"
-      :style="{ fontSize: height / 16 + 'px' }"
-    >
-      <h1>CODING</h1>
-    </section>
-    <section class="equation">
-      <h2>equation</h2>
-    </section>
-    <section class="next_page">
+  <baseComponent pk="coding">
+    <template v-slot:title>PROGRAMMING</template>
+    <template v-slot:next_page>
       <slot name="next_page" />
-    </section>
-    <section class="text">text</section>
-    <section class="content"></section>
-  </div>
+    </template>
+  </baseComponent>
 </template>
 
 <script>
+import baseComponent from '@/components/baseComponent.vue'
 export default {
-  props: {
-    message: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      width: 0,
-      height: 0,
-    }
-  },
-  computed: {
-    fontSize() {
-      return this.height / 10
-    },
-  },
-  mounted() {
-    setTimeout(() => {
-      this.width = document.getElementById('coding').clientWidth
-      this.height = document.getElementById('coding').clientHeight
-      window.addEventListener('resize', () => {
-        setTimeout(() => {
-          this.width = document.getElementById('coding').clientWidth
-          this.height = document.getElementById('coding').clientHeight
-          // console.log(this.width, this.height)
-        }, 1)
-      })
-    }, 1)
+  components: {
+    baseComponent,
   },
 }
 </script>
 
-<style scoped>
-/* .contain {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1.61803fr 1fr 1.61803fr;
-  grid-template-rows: 1fr 1.61803fr;
-  grid-template-areas:
-    'title equation new_page'
-    'text text content';
-} */
-.title {
-  color: #000000;
-  background-color: #8aaca3;
-  font-size: 5px;
-  /* position: relative; */
-  grid-area: title;
-}
-
-.content {
-  font-size: 1px;
-  /* color: aqua; */
-  color: black;
-  background-color: #db6b0e;
-  grid-area: content;
-}
-
-.equation {
-  color: black;
-  background-color: #0d1f2f;
-  grid-area: equation;
-}
-
-.text {
-  color: beige;
-  background-color: #3b6670;
-  grid-area: text;
-}
-.page {
-  width: 100%;
-  height: 100%;
-  transform-origin: top right;
-}
-
-.new_page {
-  color: black;
-  /* filter: blur(1px); */
-  background-color: black;
-  transform-origin: top right;
-  /* position: relative; */
-  /* padding-top: 61.8%; */
-  /* opacity: 0.8; */
-  grid-area: new_page;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- <canvas
-      id="background"
-      class="fixed w-screen h-screen top-0 bottom-0"
-    ></canvas> -->
     <background />
     <div class="flex justify-center background">
       <div class="containing page">
@@ -72,13 +68,14 @@
 import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
 import coding from '@/components/coding.vue'
-import Background from '~/components/background.vue'
+// import '@/scripts/background.js'
+// import Background from '~/components/background.vue'
 import Photography from '~/components/photography.vue'
 import physics from '~/components/physics.vue'
 export default {
   components: {
     coding,
-    Background,
+    // Background,
     Photography,
     physics,
   },
@@ -98,9 +95,6 @@ export default {
     }
   },
   computed: {
-    // post() {
-    //   return this.posts[1]
-    // },
     isTooWide() {
       if (this.windowHeight * 1.61803 < this.windowWidth) return true
       else return false
@@ -126,14 +120,12 @@ export default {
           height: '100vh',
           width: this.phiWidth + 'px',
           fontSize: '0.00618vh',
-          // width: 'auto',
         }
       else
         return {
           width: '100vw',
           height: this.phiHeight + 'px',
           fontSize: '0.001vw',
-          // height: 'auto',
         }
     },
   },
@@ -151,11 +143,9 @@ export default {
         setTimeout(() => {
           this.width = document.getElementById('home').clientWidth
           this.height = document.getElementById('home').clientHeight
-          // console.log(this.width, this.height)
         }, 1)
       })
     }, 1)
-
     // const canvas = document.getElementById('background')
     // const ctx = canvas.getContext('2d')
     // ctx.fillStyle = 'blue'
@@ -168,35 +158,10 @@ export default {
     let scale = 2.61803
     for (const id in pages) {
       tl.addLabel(id)
-      // console.log(tl.previousLabel(id + 0.1))
-      // tl.to(pages[id + 1], {
-      //   scale: 1.61803 ** 2,
-      //   opacity: 1,
-      //   // css: { filter: 'blur(0' },
-      //   // duration: 3,
-      // })
-      // console.log(pages[id].querySelector('.content'))
-      tl.to(
-        pages[0],
-        {
-          scale,
-          // opacity: 0,
-        }
-        // '<'
-      )
+      tl.to(pages[0], {
+        scale,
+      })
       scale *= 2.61802
-      // if (pages[id - 1]) {
-      //   tl.to(
-      //     pages[id - 1],
-      //     {
-      //       scale: 2 * 1.61803 ** 2,
-      //       // opacity: 0,
-      //       // duration: 0.1,
-      //       // ease: 'none',
-      //     },
-      //     '<'
-      //   )
-      // }
     }
     // const proxy = { blur: 0 }
     // // const blurSetter = gsap.quickSetter('.new_page', 'filter': 'blur', 'px') // fast
@@ -227,17 +192,13 @@ export default {
       pin: true,
       anticipatePin: 1,
       snap: {
-        // snapTo: 1 / (pages.length - 1), // snap to the closest label in the timeline
-        // snapTo: [0, 0.1, 0.5, 0.8, 1], // snap to the closest label in the timeline
         snapTo: 'labels', // snap to the closest label in the timeline
         duration: 0.2, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
         delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
       end: () => '+=' + pages.length * this.windowWidth,
-      // end: '+=10000',
     })
-    // gsap.set('.new_page', { force3D: true })
   },
   head() {
     return {
@@ -254,16 +215,12 @@ export default {
   height: 400px;
 }
 .background {
-  /* overflow: scroll; */
-  /* background-color: #efe2bf; */
   height: 100vh;
   width: 100vw;
   transform-origin: top right;
 }
 @media only screen and (min-width: 640px) {
   .contain {
-    /* width: 100%; */
-    /* height: 100%; */
     display: grid;
     grid-template-columns: 1.61803fr 1fr 1.61803fr;
     grid-template-rows: 1fr 1.61803fr;
@@ -275,8 +232,6 @@ export default {
 
 @media only screen and (max-width: 640px) {
   .contain {
-    /* width: 100%; */
-    /* height: 100%; */
     display: grid;
     grid-template-columns: 1.61803fr 1fr;
     grid-template-rows: 1.61803fr 1fr 1.61803fr;
@@ -289,8 +244,6 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
-  /* font-size: 5rem; */
-  /* position: relative; */
   grid-area: title;
 }
 
@@ -308,7 +261,6 @@ export default {
 }
 
 .text {
-  /* font-size: 20px; */
   background-color: #3b6670;
   grid-area: text;
 }
@@ -319,12 +271,7 @@ export default {
 
 .new_page {
   color: black;
-  /* background-color: #0d1f2f; */
   transform-origin: top right;
-
-  /* position: relative; */
-  /* padding-top: 61.8%; */
-  /* opacity: 0.8; */
   grid-area: new_page;
 }
 </style>

@@ -65,14 +65,11 @@ export default {
 .title {
   color: #000000;
   background-color: #8aaca3;
-  /* font-size: 5px; */
-  /* position: relative; */
   grid-area: title;
 }
 
 .content {
   font-size: 1px;
-  /* color: aqua; */
   color: black;
   background-color: #db6b0e;
   grid-area: content;
@@ -97,12 +94,8 @@ export default {
 
 .new_page {
   color: black;
-  /* filter: blur(1px); */
   background-color: black;
   transform-origin: top right;
-  /* position: relative; */
-  /* padding-top: 61.8%; */
-  /* opacity: 0.8; */
   grid-area: new_page;
 }
 </style>
