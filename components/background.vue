@@ -3,36 +3,40 @@
 </template>
 
 <script>
+const Complex = require('complex.js')
 export default {
   mounted() {
-    const heigth = 10
+    // const heigth = 10
     const canvas = document.getElementById('background')
     const ctx = canvas.getContext('2d')
     ctx.fillStyle = 'blue'
     // ctx.fillRect(0, 0, canvas.width, canvas.height)
-    class Tile {
-      constructor() {
-        this.height = heigth
-      }
-    }
-    class Kite extends Tile {
-      constructor(height, x, y) {
-        super(height)
-        this.x = x
-        this.y = y
+    class RobinsonTriangle {
+      constructor(a, b, c) {
+        this.a = a
+        this.b = b
+        this.c = c
       }
 
-      draw() {
-        ctx.strokeStyle = 'red'
-        ctx.beginPath()
-        ctx.lineWidth = '1'
-        ctx.moveTo(this.x, this.y)
-        ctx.lineTo(250, 75)
-        ctx.stroke()
+      centre() {
+        return this.a.add(this.b).div(2)
+      }
+
+      path() {
+        // const ab = this.b.sub(this.a)
+        // const bc = this.c.sub(this.b)
+        const xy = (c) => {
+          return [c.re, c.im]
+        }
+        console.log(xy(this.a))
       }
     }
-    const firstKite = new Kite(10, 0, 0)
-    firstKite.draw()
+    const tri = new RobinsonTriangle(
+      new Complex(5, 1),
+      new Complex(4, 3),
+      new Complex(2, 1)
+    )
+    console.log(tri.path())
   },
 }
 </script>
