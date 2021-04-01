@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
-    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/pwa": "^3.3.5",
     "@tailwindcss/typography": "^0.3.1",
     "complex.js": "^2.0.11",
     "core-js": "^3.8.3",
