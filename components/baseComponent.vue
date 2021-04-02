@@ -40,10 +40,12 @@ export default {
     setTimeout(() => {
       this.width = document.getElementById(pk).clientWidth
       this.height = document.getElementById(pk).clientHeight
+      this.$emit('heightChange', this.height)
       window.addEventListener('resize', () => {
         setTimeout(() => {
           this.width = document.getElementById(pk).clientWidth
           this.height = document.getElementById(pk).clientHeight
+          this.$emit('heightChange', this.height)
         }, 1)
       })
     }, 1)

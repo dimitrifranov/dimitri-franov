@@ -27,15 +27,19 @@
             />
           </section>
           <section class="new_page">
-            <coding>
+            <blog>
               <template v-slot:next_page>
-                <photography>
+                <coding>
                   <template v-slot:next_page>
-                    <physics></physics>
+                    <photography>
+                      <template v-slot:next_page>
+                        <physics></physics>
+                      </template>
+                    </photography>
                   </template>
-                </photography>
+                </coding>
               </template>
-            </coding>
+            </blog>
           </section>
           <section class="text">
             <article class="prose lg:prose-lg mx-20 my-20 overflow-hidden">
@@ -72,12 +76,14 @@ import coding from '@/components/coding.vue'
 // import Background from '~/components/background.vue'
 import Photography from '~/components/photography.vue'
 import physics from '~/components/physics.vue'
+import Blog from '~/components/blog.vue'
 export default {
   components: {
     coding,
     // Background,
     Photography,
     physics,
+    Blog,
   },
   async asyncData({ $content }) {
     const posts = await $content('blog').fetch()
