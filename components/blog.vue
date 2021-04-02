@@ -29,7 +29,7 @@ export default {
     baseComponent,
   },
   async asyncData({ $content }) {
-    const articles = await $content('blog').fetch()
+    const articles = await $content('blog').without('body').fetch()
     return {
       articles,
     }
