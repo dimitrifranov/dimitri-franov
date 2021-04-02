@@ -27,7 +27,7 @@
             />
           </section>
           <section class="new_page">
-            <blog>
+            <blog :articles="articles">
               <template v-slot:next_page>
                 <coding>
                   <template v-slot:next_page>
@@ -86,10 +86,10 @@ export default {
     Blog,
   },
   async asyncData({ $content }) {
-    const posts = await $content('blog').fetch()
+    const articles = await $content('blog').fetch()
 
     return {
-      posts,
+      articles,
     }
   },
   data() {

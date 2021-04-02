@@ -6,16 +6,15 @@
     </template>
     <template v-slot:text>
       <article class="grid h-full w-full articles p-3">
-        <!-- {{ articles }} -->
         <nuxt-link
           v-for="article in articles"
           :key="article.slug"
           :style="{ borderWidth: '10%' }"
           class="article"
-          to="/blog/article"
+          :to="articleLink(article.slug)"
         >
-          <p :style="{ fontSize: height / 20 + 'px' }">politics</p>
-          <h3></h3>
+          <p>politics</p>
+          <h3 :style="{ fontSize: height / 20 + 'px' }">{{ article.title }}</h3>
         </nuxt-link>
       </article>
     </template>
@@ -28,12 +27,20 @@ export default {
   components: {
     baseComponent,
   },
-  async asyncData({ $content }) {
-    const articles = await $content('blog').without('body').fetch()
-    return {
-      articles,
-    }
+  props: {
+    articles: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
   },
+  // async asyncData({ $content }) {
+  //   const articles = await $content('blog').without('body').fetch()
+  //   return {
+  //     articles,
+  //   }
+  // },
   data() {
     return {
       height: 0,
@@ -44,6 +51,9 @@ export default {
       this.height = e
       console.log(e)
       console.log(this.articles)
+    },
+    articleLink(slug) {
+      return '/blog/' + slug
     },
   },
 }

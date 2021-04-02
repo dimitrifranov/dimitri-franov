@@ -12,9 +12,7 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content('blog')
-      .where({ slug: params.slug })
-      .fetch()[0]
+    const article = await $content('blog', params.slug).fetch()
     return {
       article,
     }
