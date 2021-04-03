@@ -10,11 +10,11 @@
           v-for="article in articles"
           :key="article.slug"
           :style="{ borderWidth: '10%' }"
-          class="article px-4 py-2 mx-3 my-2 font-light"
+          class="article px-3 py-2 mx-2 my-2 font-light"
           :to="articleLink(article.slug)"
         >
           <p :style="{ fontSize: height / 50 + 'px' }">politics</p>
-          <h3 class="uppercase" :style="{ fontSize: height / 30 + 'px' }">
+          <h3 class="uppercase" :style="{ fontSize: height / 35 + 'px' }">
             {{ article.title }}
           </h3>
         </nuxt-link>
@@ -65,10 +65,13 @@ export default {
   grid-template-rows: 1fr 1fr;
 }
 .article {
-  @apply border-white text-xs;
   border-width: 0.01rem;
 }
 .uppercase {
   text-transform: uppercase;
+}
+.word-wrap {
+  word-wrap: break-word;
+  word-break: break-all;
 }
 </style>
