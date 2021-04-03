@@ -1,8 +1,11 @@
 <template>
   <div>
-    <article>
+    <article class="w-screen h-screen overflow-hidden">
+      <h1 class="text-6xl font-display w-full text-center uppercase mt-4">
+        {{ article.title }}
+      </h1>
       <nuxt-content
-        class="h-screen w-screen prose lg:prose-lg mx-20 my-20 overflow-hidden text-black"
+        class="prose lg:prose-lg mx-64 my-20 text-black"
         :document="article"
       />
     </article>
@@ -20,4 +23,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.uppercase {
+  text-transform: uppercase;
+}
+</style>

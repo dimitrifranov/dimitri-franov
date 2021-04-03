@@ -5,16 +5,18 @@
       <slot name="next_page" />
     </template>
     <template v-slot:text>
-      <article class="grid h-full w-full articles p-3">
+      <article class="grid h-full w-full articles p-4">
         <nuxt-link
           v-for="article in articles"
           :key="article.slug"
           :style="{ borderWidth: '10%' }"
-          class="article"
+          class="article px-4 py-2 mx-3 my-2 font-light"
           :to="articleLink(article.slug)"
         >
-          <p>politics</p>
-          <h3 :style="{ fontSize: height / 20 + 'px' }">{{ article.title }}</h3>
+          <p :style="{ fontSize: height / 50 + 'px' }">politics</p>
+          <h3 class="uppercase" :style="{ fontSize: height / 30 + 'px' }">
+            {{ article.title }}
+          </h3>
         </nuxt-link>
       </article>
     </template>
@@ -49,8 +51,6 @@ export default {
   methods: {
     heightChange(e) {
       this.height = e
-      console.log(e)
-      console.log(this.articles)
     },
     articleLink(slug) {
       return '/blog/' + slug
@@ -61,10 +61,14 @@ export default {
 
 <style scoped>
 .articles {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 .article {
-  @apply border-white text-xs m-1;
+  @apply border-white text-xs;
   border-width: 0.01rem;
+}
+.uppercase {
+  text-transform: uppercase;
 }
 </style>
