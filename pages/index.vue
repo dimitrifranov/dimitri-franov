@@ -43,7 +43,7 @@
           </section>
           <section class="text">
             <article class="prose lg:prose-lg mx-20 my-20 overflow-hidden">
-              <h2>Hallo Ich bin Dimitri</h2>
+              <h2>Hallo, ich bin Dimitri</h2>
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -71,6 +71,7 @@
 <script>
 import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
+import scrollToPlugin from 'gsap/ScrollToPlugin'
 import coding from '@/components/coding.vue'
 // import '@/scripts/background.js'
 // import Background from '~/components/background.vue'
@@ -86,7 +87,7 @@ export default {
     Blog,
   },
   async asyncData({ $content }) {
-    const articles = await $content('blog').fetch()
+    const articles = await $content('blog').limit(6).fetch()
 
     return {
       articles,
@@ -136,12 +137,14 @@ export default {
     },
   },
   mounted() {
+    console.log(this.$route.hash[1])
     this.windowWidth = window.innerWidth
     this.windowHeight = window.innerHeight
     window.onresize = () => {
       this.windowWidth = window.innerWidth
       this.windowHeight = window.innerHeight
     }
+    if (this.windowWidth < this.windowHeight) this.articles.length = 3
     setTimeout(() => {
       this.width = document.getElementById('home').clientWidth
       this.height = document.getElementById('home').clientHeight
@@ -158,7 +161,7 @@ export default {
     // ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     gsap.defaults({ duration: 1, ease: 'none' })
-    gsap.registerPlugin(scrollTrigger)
+    gsap.registerPlugin(scrollTrigger, scrollToPlugin)
     const tl = gsap.timeline()
     const pages = gsap.utils.toArray('.page')
     let scale = 2.61803
@@ -205,6 +208,12 @@ export default {
       },
       end: () => '+=' + pages.length * this.windowWidth,
     })
+    this.scrollTo(parseInt(this.$route.hash[1]))
+  },
+  methods: {
+    scrollTo(section) {
+      gsap.to(window, { duration: 0.5, scrollTo: section * this.windowWidth })
+    },
   },
   head() {
     return {

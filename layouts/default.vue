@@ -15,7 +15,10 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   overflow-x: hidden;
-  /* overflow-y: initial; */
+  /* overflow-y: hidden; */
+}
+body {
+  overflow-y: hidden;
 }
 
 *,

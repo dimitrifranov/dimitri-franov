@@ -46,4 +46,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+  pwa: {
+    meta: {
+      description:
+        'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
+    },
+  },
 }

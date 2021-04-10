@@ -5,20 +5,32 @@
       <slot name="next_page" />
     </template>
     <template v-slot:text>
-      <article class="grid h-full w-full articles p-4">
+      <article
+        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-2 h-5/6 w-full articles lg:p-4 pb-2"
+      >
         <nuxt-link
           v-for="article in articles"
           :key="article.slug"
           :style="{ borderWidth: '10%' }"
-          class="article px-3 py-2 mx-2 my-2 font-light"
+          class="article px-1 py-1 lg:px-3 lg:py-2 mx-2 mt-2 font-light bg-blue"
           :to="articleLink(article.slug)"
         >
-          <p :style="{ fontSize: height / 50 + 'px' }">politics</p>
-          <h3 class="uppercase" :style="{ fontSize: height / 35 + 'px' }">
+          <p :style="{ fontSize: height / 50 + 'px' }">sohn</p>
+          <h3
+            class="uppercase truncate"
+            :style="{ fontSize: height / 35 + 'px' }"
+          >
             {{ article.title }}
           </h3>
         </nuxt-link>
       </article>
+      <nuxt-link
+        to="/blog"
+        :style="{ fontSize: height / 50 + 'px' }"
+        class="text-white h-1/6 border border-white font-light px-1 mb-2 mr-6 float-right more"
+      >
+        more->
+      </nuxt-link>
     </template>
   </baseComponent>
 </template>
@@ -60,12 +72,14 @@ export default {
 </script>
 
 <style scoped>
-.articles {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
 .article {
   border-width: 0.01rem;
+  transition: all 200ms ease;
+}
+.article:hover {
+  z-index: 10;
+  /* position: fixed; */
+  transform: scale(1.5);
 }
 .uppercase {
   text-transform: uppercase;
@@ -73,5 +87,11 @@ export default {
 .word-wrap {
   word-wrap: break-word;
   word-break: break-all;
+}
+.more {
+  transition: all 200ms ease;
+}
+.more:hover {
+  transform: scale(1.1);
 }
 </style>
