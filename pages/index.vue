@@ -31,7 +31,7 @@
               <template v-slot:next_page>
                 <coding>
                   <template v-slot:next_page>
-                    <photography>
+                    <photography :photos="photos">
                       <template v-slot:next_page>
                         <physics></physics>
                       </template>
@@ -88,9 +88,11 @@ export default {
   },
   async asyncData({ $content }) {
     const articles = await $content('blog').limit(6).fetch()
+    const photos = await $content('photos').limit(6).fetch()
 
     return {
       articles,
+      photos,
     }
   },
   data() {
