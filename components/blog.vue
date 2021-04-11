@@ -6,7 +6,7 @@
     </template>
     <template v-slot:text>
       <article
-        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-2 h-5/6 w-full articles lg:p-4 pb-2"
+        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-2 h-5/6 w-full articles lg:p-4 lg:pb-2 pb-2"
       >
         <nuxt-link
           v-for="article in articles"
@@ -26,10 +26,10 @@
       </article>
       <nuxt-link
         to="/blog"
-        :style="{ fontSize: height / 50 + 'px' }"
-        class="text-white h-1/6 border border-white font-light px-1 mb-2 mr-6 float-right more"
+        :style="{ fontSize: height / 45 + 'px' }"
+        class="text-white h-1/6 border border-white font-light px-2 py-1 mb-2 mr-6 float-right more"
       >
-        more->
+        more
       </nuxt-link>
     </template>
   </baseComponent>

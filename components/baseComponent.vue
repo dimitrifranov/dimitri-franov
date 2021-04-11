@@ -6,8 +6,12 @@
     >
       <slot name="title" />
     </section>
-    <section class="equation">
-      <slot name="equation" />
+    <section class="equation center-items">
+      <img
+        src="equation.png"
+        alt="equation"
+        :style="{ height: height / 6 + 'px' }"
+      />>
     </section>
     <section class="next_page">
       <slot name="next_page" />
