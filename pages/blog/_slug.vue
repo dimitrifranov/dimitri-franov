@@ -34,7 +34,7 @@
         {{ article.description }}
       </h1>
       <nuxt-content
-        class="prose lg:prose-lg mx-40 my-20 text-black"
+        class="prose lg:prose-lg lg:mx-30 lg:my-15 md:mx-20 md:my-10 text-black"
         :document="article"
       />
     </article>
@@ -49,6 +49,7 @@ export default {
       article,
     }
   },
+  transition: 'article',
 }
 </script>
 
@@ -58,5 +59,17 @@ export default {
   transform: scale(1.1);
   transition: all 200ms ease;
   /* box-shadow: 0.5vmin -0.5vmin 0 white; */
+}
+
+.article-enter-active,
+.article-leave-active {
+  transition: all 0.5s;
+  /* transition: color 0.5s; */
+}
+.article-enter,
+.article-leave-active {
+  transform: scale(0);
+  opacity: 0;
+  /* background: transparent; */
 }
 </style>

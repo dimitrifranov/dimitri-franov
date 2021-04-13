@@ -20,7 +20,26 @@
       <slot name="text" />
     </section>
     <section class="content">
-      <slot name="content" />
+      <!-- <slot name="content" /> -->
+      <div class="content center-items w-full h-full">
+        <ul class="text-white" :style="{ fontSize: width / 50 + 'px' }">
+          <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
+            Home
+          </li>
+          <li class="hover:text-black cursor-pointer" @click="scrollTo(1)">
+            Blog
+          </li>
+          <li class="hover:text-black cursor-pointer" @click="scrollTo(2)">
+            Projects
+          </li>
+          <li class="hover:text-black cursor-pointer" @click="scrollTo(3)">
+            Photography
+          </li>
+          <li class="hover:text-black cursor-pointer" @click="scrollTo(4)">
+            Contact
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>
@@ -45,14 +64,21 @@ export default {
       this.width = document.getElementById(pk).clientWidth
       this.height = document.getElementById(pk).clientHeight
       this.$emit('heightChange', this.height)
+      this.$emit('widthChange', this.width)
       window.addEventListener('resize', () => {
         setTimeout(() => {
           this.width = document.getElementById(pk).clientWidth
           this.height = document.getElementById(pk).clientHeight
           this.$emit('heightChange', this.height)
+          this.$emit('widthChange', this.width)
         }, 1)
       })
     }, 1)
+  },
+  methods: {
+    scrollTo(e) {
+      this.$emit('scroll', e)
+    },
   },
 }
 </script>

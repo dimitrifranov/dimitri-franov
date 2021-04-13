@@ -1,5 +1,5 @@
 <template>
-  <baseComponent pk="coding" @heightChange="heightChange">
+  <baseComponent pk="coding" @heightChange="heightChange" @scroll="scroll">
     <template v-slot:title>TSCHAU.APP</template>
     <template v-slot:next_page>
       <slot name="next_page" />
@@ -7,12 +7,12 @@
     <template v-slot:text>
       <section
         :style="{ fontSize: height / 50 + 'px' }"
-        class="prose lg:prose-lg mx-2 my-2"
+        class="prose lg:prose-lg lg:mx-2 lg:my-2 mx-1 my-1"
       >
-        <h3>
+        <h2>
           Die Social Media Platform Tschau.app habe ich als meine Maturarbeit
           programmiert
-        </h3>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
@@ -23,6 +23,7 @@
         <a class="bg-orange" href="https://tschau.app">Zur App</a>
       </section>
     </template>
+    <template v-slot:content> </template>
   </baseComponent>
 </template>
 
@@ -40,6 +41,9 @@ export default {
   methods: {
     heightChange(e) {
       this.height = e
+    },
+    scroll(e) {
+      this.$emit('scroll', e)
     },
   },
 }

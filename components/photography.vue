@@ -1,18 +1,25 @@
 <template>
-  <baseComponent pk="photo">
+  <baseComponent pk="photo" @heightChange="heightChange" @scroll="scroll">
     <template v-slot:title>PHOTOGRAPHY</template>
     <template v-slot:next_page>
       <slot name="next_page" />
     </template>
     <template v-slot:text>
-      <section class="grid grid-cols-3 m-1">
-        <img
-          v-for="(photo, id) in photos"
-          :key="id"
-          :src="photo.photo"
-          :alt="photo.title"
-        />
-      </section>
+      <div>
+        <section class="grid md:grid-cols-3 grid-cols-1 md:m-1">
+          <img
+            v-for="(photo, id) in photos"
+            :key="id"
+            :style="{
+              paddingLeft: height / 50 + 'px',
+              paddingRight: height / 50 + 'px',
+            }"
+            :src="photo.photo"
+            :alt="photo.title"
+          />
+        </section>
+        <baseButton :height="height / 10">Mehr</baseButton>
+      </div>
     </template>
   </baseComponent>
 </template>
@@ -29,6 +36,22 @@ export default {
       default() {
         return []
       },
+    },
+  },
+  data() {
+    return {
+      height: 0,
+    }
+  },
+  methods: {
+    heightChange(e) {
+      if (e < 640) {
+        this.photos.length = 3
+      }
+      this.height = e
+    },
+    scroll(e) {
+      this.$emit('scroll', e)
     },
   },
   // async asyncData({ $content }) {

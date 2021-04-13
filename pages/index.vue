@@ -27,13 +27,13 @@
             />
           </section>
           <section class="new_page">
-            <blog :articles="articles">
+            <blog :articles="articles" @scroll="scrollTo">
               <template v-slot:next_page>
-                <coding>
+                <coding @scroll="scrollTo">
                   <template v-slot:next_page>
-                    <photography :photos="photos">
+                    <photography :photos="photos" @scroll="scrollTo">
                       <template v-slot:next_page>
-                        <physics></physics>
+                        <contact @scroll="scrollTo"></contact>
                       </template>
                     </photography>
                   </template>
@@ -42,8 +42,10 @@
             </blog>
           </section>
           <section class="text">
-            <article class="prose lg:prose-lg mx-20 my-20 overflow-hidden">
-              <h2>Hallo, ich bin Dimitri</h2>
+            <article
+              class="prose lg:prose-lg xl:prose-xl mx-20 my-20 overflow-hidden"
+            >
+              <h3>Hallo, ich bin Dimitri</h3>
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -60,7 +62,25 @@
               </p> -->
             </article>
           </section>
-          <div class="content"></div>
+          <div class="content center-items">
+            <ul class="text-white" :style="{ fontSize: width / 50 + 'px' }">
+              <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
+                Home
+              </li>
+              <li class="hover:text-black cursor-pointer" @click="scrollTo(1)">
+                Blog
+              </li>
+              <li class="hover:text-black cursor-pointer" @click="scrollTo(2)">
+                Projects
+              </li>
+              <li class="hover:text-black cursor-pointer" @click="scrollTo(3)">
+                Photography
+              </li>
+              <li class="hover:text-black cursor-pointer" @click="scrollTo(4)">
+                Contact
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <!-- <div class="block w-screen spacer"></div> -->
@@ -76,14 +96,14 @@ import coding from '@/components/coding.vue'
 // import '@/scripts/background.js'
 // import Background from '~/components/background.vue'
 import Photography from '~/components/photography.vue'
-import physics from '~/components/physics.vue'
+import contact from '~/components/contact.vue'
 import Blog from '~/components/blog.vue'
 export default {
   components: {
     coding,
     // Background,
     Photography,
-    physics,
+    contact,
     Blog,
   },
   async asyncData({ $content }) {
@@ -199,7 +219,7 @@ export default {
       //   }
       // },
       trigger: '.background',
-      scrub: 0.5,
+      scrub: 0,
       pin: true,
       anticipatePin: 1,
       snap: {
@@ -291,4 +311,9 @@ export default {
   transform-origin: top right;
   grid-area: new_page;
 }
+/* li:hover {
+  margin-left: 10px;
+  transform: translate(10px);
+  transform: scale(1.1);
+} */
 </style>

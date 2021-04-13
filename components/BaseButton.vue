@@ -2,10 +2,11 @@
   <div>
     <button
       :type="type"
+      :style="{ height: height }"
       name="button"
       v-bind="$attrs"
       :class="buttonClass"
-      class="font-light bg-transparent h-10 hover:bg-white text-white hover:text-grey py-2 px-4 mt-2 border border-white hover:border-transparent transition-colors duration-200 disabled:opacity-75 disbaled:text-error"
+      class="font-light bg-darkBlue hover:bg-darkBlue text-white hover:text-grey transition-colors duration-200 disabled:opacity-75 disbaled:text-error"
       @click="$emit('clicked')"
     >
       <slot />
@@ -24,6 +25,10 @@ export default {
     buttonClass: {
       type: String,
       default: '',
+    },
+    height: {
+      type: Number,
+      default: 0,
     },
   },
 }
