@@ -50,5 +50,6 @@ export default {
       description:
         'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
     },
+    theme_color: '#3b6670',
   },
 }

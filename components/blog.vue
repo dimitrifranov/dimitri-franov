@@ -34,7 +34,7 @@
         :style="{ fontSize: height / 45 + 'px' }"
         class="text-white h-1/6 border border-white font-light px-2 py-1 mb-2 mr-6 float-right more"
       >
-        more
+        more articles
       </nuxt-link>
     </template>
     <template v-slot:content>
