@@ -1,6 +1,6 @@
 <template>
   <baseComponent pk="photo" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>PHOTOGRAPHY</template>
+    <template v-slot:title>FOTOGRAFIE</template>
     <template v-slot:next_page>
       <slot name="next_page" />
     </template>

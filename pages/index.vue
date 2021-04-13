@@ -71,13 +71,13 @@
                 Blog
               </li>
               <li class="hover:text-black cursor-pointer" @click="scrollTo(2)">
-                Projects
+                Projekte
               </li>
               <li class="hover:text-black cursor-pointer" @click="scrollTo(3)">
-                Photography
+                Fotografie
               </li>
               <li class="hover:text-black cursor-pointer" @click="scrollTo(4)">
-                Contact
+                Kontakt
               </li>
             </ul>
           </div>

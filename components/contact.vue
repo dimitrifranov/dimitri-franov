@@ -1,6 +1,6 @@
 <template>
   <baseComponent pk="contact" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>CONTACT</template>
+    <template v-slot:title>KONTAKT</template>
     <template v-slot:text>
       <div
         class="prose lg:prose-lg h-full"
