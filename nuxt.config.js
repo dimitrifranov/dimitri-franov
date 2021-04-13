@@ -7,12 +7,12 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'dimitri-franov',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'google-site-verification',
+        content: '99gs9VAKdbIZL0ykenEwpoHh_hgzYRvJT7mWejWOXvc',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -49,7 +49,16 @@ export default {
     meta: {
       description:
         'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
+      name: 'Dimitri Franov Homepage',
+      author: 'Dimitri Franov',
+      theme_color: '#3b6670',
+      lang: 'de',
     },
-    theme_color: '#3b6670',
+    manifest: {
+      name: 'Dimitri Franov Homepage',
+      short_name: 'Dimitri',
+      description:
+        'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
+    },
   },
 }
