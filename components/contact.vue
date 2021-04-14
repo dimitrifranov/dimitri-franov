@@ -6,7 +6,7 @@
         class="prose lg:prose-lg h-full"
         :style="{ fontSize: height / 34 + 'px', padding: height / 30 + 'px' }"
       >
-        <h3>Hallo, ich bin erreichbar unter folgender Addresse:</h3>
+        <h3>Ich bin erreichbar unter folgender Addresse:</h3>
         <p>
           Dimitri Franov <br />
           Mühlegasse 6 <br />

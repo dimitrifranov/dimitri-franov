@@ -6,7 +6,9 @@
     </template>
     <template v-slot:text>
       <section
-        :style="{ fontSize: height / 50 + 'px' }"
+        :style="{
+          fontSize: height / 50 + 'px',
+        }"
         class="prose lg:prose-lg lg:mx-2 lg:my-2 mx-1 my-1"
       >
         <h2>
@@ -14,13 +16,23 @@
           programmiert
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet.
+          Tschau.app ist eine neue Social Media Platform auf der du Gruppen mit
+          deinen Freunden erstellen kannst und darin verschiedene Bilder posten
+          kannst.
         </p>
-        <a class="bg-orange" href="https://tschau.app">Zur App</a>
+        <p :style="{ paddingBottom: height / 20 + 'px' }">
+          Mehr Informationen über die Webseite Tschau.app findet sich unter dem
+          Info-Abschnitt der App. Dazu gehört auch der schriftliche Teil meiner
+          Maturarbeit
+        </p>
+        <a
+          :style="{
+            padding: height / 50 + 'px',
+          }"
+          class="bg-orange button"
+          href="https://tschau.app"
+          >Zur App</a
+        >
       </section>
     </template>
     <template v-slot:content> </template>
@@ -49,4 +61,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.button:hover {
+  transform: scale(1.2);
+}
+.button {
+  transition: all 200ms;
+}
+</style>

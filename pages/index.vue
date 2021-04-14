@@ -33,7 +33,16 @@
                   <template v-slot:next_page>
                     <photography :photos="photos" @scroll="scrollTo">
                       <template v-slot:next_page>
-                        <contact @scroll="scrollTo"></contact>
+                        <contact @scroll="scrollTo">
+                          <template v-slot:next_page>
+                            <div
+                              class="h-full w-full text-white bg-ligthBlue"
+                              @click="scrollTo(0)"
+                            >
+                              Zurück zum Anfang
+                            </div>
+                          </template>
+                        </contact>
                       </template>
                     </photography>
                   </template>
@@ -47,11 +56,13 @@
             >
               <h3>Hallo, ich bin Dimitri</h3>
               <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet.
+                Und dies ist meine Homepage. Um zum nächsten Abschnitt zu
+                gelangen kannst du gerne scrollen oder auf das
+                Inhaltsverzeichnis rechts drücken.
+              </p>
+              <p>
+                Auf der Webseite findest du verschiedene Blogbeiträge zu
+                verschiedenen Themen, meine Projekte und Fotografien.
               </p>
               <!-- <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -63,7 +74,7 @@
             </article>
           </section>
           <div class="content center-items">
-            <ul class="text-white" :style="{ fontSize: width / 50 + 'px' }">
+            <ul class="text-white" :style="{ fontSize: width / 45 + 'px' }">
               <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
                 Home
               </li>

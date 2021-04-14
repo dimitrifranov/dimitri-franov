@@ -21,8 +21,8 @@
     </section>
     <section class="content">
       <!-- <slot name="content" /> -->
-      <div class="content center-items w-full h-full">
-        <ul class="text-white" :style="{ fontSize: width / 50 + 'px' }">
+      <div class="content center-items w-full h-full flex flex-col">
+        <ul class="text-white" :style="{ fontSize: width / 45 + 'px' }">
           <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
             Home
           </li>
