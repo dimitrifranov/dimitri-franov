@@ -22,20 +22,20 @@
     <section class="content">
       <!-- <slot name="content" /> -->
       <div class="content center-items w-full h-full flex flex-col">
-        <ul class="text-white" :style="{ fontSize: width / 45 + 'px' }">
-          <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
+        <ul class="text-black" :style="{ fontSize: width / 45 + 'px' }">
+          <li class="hover:text-white cursor-pointer" @click="scrollTo(0)">
             Home
           </li>
-          <li class="hover:text-black cursor-pointer" @click="scrollTo(1)">
+          <li class="hover:text-white cursor-pointer" @click="scrollTo(1)">
             Blog
           </li>
-          <li class="hover:text-black cursor-pointer" @click="scrollTo(2)">
+          <li class="hover:text-white cursor-pointer" @click="scrollTo(2)">
             Projekte
           </li>
-          <li class="hover:text-black cursor-pointer" @click="scrollTo(3)">
+          <li class="hover:text-white cursor-pointer" @click="scrollTo(3)">
             Fotografie
           </li>
-          <li class="hover:text-black cursor-pointer" @click="scrollTo(4)">
+          <li class="hover:text-white cursor-pointer" @click="scrollTo(4)">
             Kontakt
           </li>
         </ul>

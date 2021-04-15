@@ -14,7 +14,7 @@
               class="h-32 sm:h-40"
               :style="{ height: height / 6 + 'px' }"
             />
-            <h1 class="leading-none">
+            <h1 class="leading-none name">
               <p class="font-semibold">DIMITRI</p>
               <p class="font-light">FRANOV</p>
             </h1>
@@ -34,14 +34,14 @@
                     <photography :photos="photos" @scroll="scrollTo">
                       <template v-slot:next_page>
                         <contact @scroll="scrollTo">
-                          <template v-slot:next_page>
+                          <!-- <template v-slot:next_page>
                             <div
                               class="h-full w-full text-white bg-ligthBlue"
                               @click="scrollTo(0)"
                             >
                               Zurück zum Anfang
                             </div>
-                          </template>
+                          </template> -->
                         </contact>
                       </template>
                     </photography>
@@ -74,20 +74,20 @@
             </article>
           </section>
           <div class="content center-items">
-            <ul class="text-white" :style="{ fontSize: width / 45 + 'px' }">
-              <li class="hover:text-black cursor-pointer" @click="scrollTo(0)">
+            <ul class="text-black" :style="{ fontSize: width / 45 + 'px' }">
+              <li class="cursor-pointer hover:text-white" @click="scrollTo(0)">
                 Home
               </li>
-              <li class="hover:text-black cursor-pointer" @click="scrollTo(1)">
+              <li class="cursor-pointer hover:text-white" @click="scrollTo(1)">
                 Blog
               </li>
-              <li class="hover:text-black cursor-pointer" @click="scrollTo(2)">
+              <li class="cursor-pointer hover:text-white" @click="scrollTo(2)">
                 Projekte
               </li>
-              <li class="hover:text-black cursor-pointer" @click="scrollTo(3)">
+              <li class="cursor-pointer hover:text-white" @click="scrollTo(3)">
                 Fotografie
               </li>
-              <li class="hover:text-black cursor-pointer" @click="scrollTo(4)">
+              <li class="cursor-pointer hover:text-white" @click="scrollTo(4)">
                 Kontakt
               </li>
             </ul>

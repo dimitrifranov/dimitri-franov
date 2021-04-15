@@ -20,7 +20,9 @@
           class="article px-1 py-1 lg:px-3 lg:py-2 mx-2 mt-2 font-light bg-blue"
           :to="articleLink(article.slug)"
         >
-          <p :style="{ fontSize: height / 50 + 'px' }">sohn</p>
+          <p :style="{ fontSize: height / 50 + 'px' }">
+            {{ article.category }}
+          </p>
           <h3
             class="uppercase truncate"
             :style="{ fontSize: height / 35 + 'px' }"
@@ -38,8 +40,9 @@
       </nuxt-link>
     </template>
     <template v-slot:content>
-      <!-- <div id="canvas"></div> -->
-      <!-- <canvas id="canvas"></canvas> -->
+      <!-- <div id="canvas"></div>    :style="{ height: height + 'px', width: width + 'px' }"     
+-->
+      <!-- <canvas id="canvas" :height="height" :width="width"></canvas> -->
     </template>
   </baseComponent>
 </template>
@@ -184,5 +187,9 @@ export default {
 }
 .more:hover {
   transform: scale(1.1);
+}
+
+#canvas {
+  transform: scale(0.618);
 }
 </style>

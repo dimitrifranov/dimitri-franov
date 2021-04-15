@@ -63,7 +63,7 @@ export default {
 
 .article-enter-active,
 .article-leave-active {
-  transition: all 0.5s;
+  transition: all 0.3s;
   /* transition: color 0.5s; */
 }
 .article-enter,

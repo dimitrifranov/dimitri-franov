@@ -29,7 +29,7 @@
           :style="{
             padding: height / 50 + 'px',
           }"
-          class="bg-orange button"
+          class="bg-orange link"
           href="https://tschau.app"
           >Zur App</a
         >
@@ -62,10 +62,11 @@ export default {
 </script>
 
 <style scoped>
-.button:hover {
+.link:hover {
   transform: scale(1.2);
+  background: blue;
 }
-.button {
+.link {
   transition: all 200ms;
 }
 </style>

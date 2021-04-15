@@ -15,6 +15,15 @@
         <p>Email: dimitri@franov.ch</p>
       </div>
     </template>
+    <template v-slot:next_page>
+      <div
+        :style="{ fontSize: height / 30 + 'px' }"
+        class="h-full w-full text-black bg-ligthBlue center-items cursor-pointer"
+        @click="scroll(0)"
+      >
+        Zurück zum Anfang
+      </div>
+    </template>
   </baseComponent>
 </template>
 
