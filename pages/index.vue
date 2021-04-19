@@ -54,7 +54,7 @@
             <article
               class="prose lg:prose-lg xl:prose-xl mx-20 my-20 overflow-hidden"
             >
-              <h3>Hallo, ich bin Dimitri</h3>
+              <h3>Hallo, ich bin Dimitri Franov</h3>
               <p>
                 Und dies ist meine Homepage. Um zum nächsten Abschnitt zu
                 gelangen kannst du gerne scrollen oder auf das
@@ -170,7 +170,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$route.hash[1])
+    // console.log(this.$route.hash[1])
     this.windowWidth = window.innerWidth
     this.windowHeight = window.innerHeight
     window.onresize = () => {
@@ -235,17 +235,20 @@ export default {
       anticipatePin: 1,
       snap: {
         snapTo: 'labels', // snap to the closest label in the timeline
-        duration: 0.1, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        duration: 0.2, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
         delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
         ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
       },
       end: () => '+=' + pages.length * this.windowWidth,
     })
-    this.scrollTo(parseInt(this.$route.hash[1]))
+    this.scrollToInstant(parseInt(this.$route.hash[1]))
   },
   methods: {
     scrollTo(section) {
       gsap.to(window, { duration: 0.5, scrollTo: section * this.windowWidth })
+    },
+    scrollToInstant(section) {
+      gsap.to(window, { duration: 0.4, scrollTo: section * this.windowWidth })
     },
   },
   head() {

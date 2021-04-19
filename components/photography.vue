@@ -10,15 +10,23 @@
           <img
             v-for="(photo, id) in photos"
             :key="id"
+            class="image"
             :style="{
               paddingLeft: height / 50 + 'px',
               paddingRight: height / 50 + 'px',
+              paddingBottom: height / 50 + 'px',
             }"
             :src="photo.photo"
             :alt="photo.title"
           />
         </section>
-        <baseButton :height="height / 10">Mehr</baseButton>
+        <nuxt-link
+          to="/photos"
+          :style="{ fontSize: height / 45 + 'px', padding: height / 50 + 'px' }"
+          class="text-white bg-orange font-light mr-2 float-right more"
+        >
+          more photos </nuxt-link
+        >>
       </div>
     </template>
   </baseComponent>
@@ -45,9 +53,9 @@ export default {
   },
   methods: {
     heightChange(e) {
-      if (e < 640) {
-        this.photos.length = 3
-      }
+      // if (e < 640) {
+      //   this.photos.length = 3
+      // }
       this.height = e
     },
     scroll(e) {
@@ -61,4 +69,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.image:hover {
+  transform: scale(1.1);
+}
+.image {
+  transition: all 200ms;
+}
+</style>

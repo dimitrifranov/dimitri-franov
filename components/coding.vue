@@ -64,7 +64,6 @@ export default {
 <style scoped>
 .link:hover {
   transform: scale(1.2);
-  background: blue;
 }
 .link {
   transition: all 200ms;

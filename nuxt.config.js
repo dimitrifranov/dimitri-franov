@@ -48,7 +48,7 @@ export default {
   pwa: {
     meta: {
       description:
-        'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
+        'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
       name: 'Dimitri Franov Homepage',
       author: 'Dimitri Franov',
       theme_color: '#3b6670',
@@ -58,7 +58,7 @@ export default {
       name: 'Dimitri Franov Homepage',
       short_name: 'Dimitri',
       description:
-        'Hallo, ich bin Dimitri und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass!',
+        'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
     },
   },
 }

@@ -167,13 +167,13 @@ export default {
 
 <style scoped>
 .article {
-  border-width: 0.01rem;
+  border-width: 1px;
   transition: all 200ms ease;
+  /* z-index: 10; */
 }
 .article:hover {
-  z-index: 10;
   /* position: fixed; */
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .uppercase {
   text-transform: uppercase;
