@@ -38,6 +38,7 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/robots',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -49,13 +50,13 @@ export default {
     meta: {
       description:
         'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
-      name: 'Dimitri Franov Homepage',
+      name: 'Dimitri Franov',
       author: 'Dimitri Franov',
       theme_color: '#3b6670',
       lang: 'de',
     },
     manifest: {
-      name: 'Dimitri Franov Homepage',
+      name: 'Dimitri Franov',
       short_name: 'Dimitri',
       description:
         'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
