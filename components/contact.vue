@@ -4,7 +4,7 @@
     <template v-slot:text>
       <div
         class="prose lg:prose-lg h-full"
-        :style="{ fontSize: height / 34 + 'px', padding: height / 30 + 'px' }"
+        :style="{ fontSize: height / 30 + 'px', padding: height / 30 + 'px' }"
       >
         <h3>Ich bin erreichbar unter folgender Addresse:</h3>
         <p>
