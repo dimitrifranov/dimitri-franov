@@ -25,7 +25,7 @@
           :style="{ fontSize: height / 45 + 'px', padding: height / 50 + 'px' }"
           class="text-white bg-orange font-light mr-2 float-right more"
         >
-          more photos </nuxt-link
+          mehr Fotos </nuxt-link
         >>
       </div>
     </template>
