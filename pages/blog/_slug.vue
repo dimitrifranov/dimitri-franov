@@ -29,12 +29,12 @@
       </nuxt-link>
       <h1 class="text-4xl text-white ml-24">{{ article.title }}</h1>
     </nav>
-    <article class="w-screen h-screen">
-      <h1 class="text-xl font-display w-full text-center uppercase mt-4">
-        {{ article.description }}
-      </h1>
+    <article class="w-screen lg:mx-64 lg:my-15 md:mx-20 md:my-10 mx-10">
+      <h2 class="text-xl font-display w-full mt-24 opacity-75">
+        {{ article.subtitle }}
+      </h2>
       <nuxt-content
-        class="prose lg:prose-lg lg:mx-30 lg:my-15 md:mx-20 md:my-10 text-black"
+        class="prose lg:prose-lg text-black mt-8"
         :document="article"
       />
     </article>
