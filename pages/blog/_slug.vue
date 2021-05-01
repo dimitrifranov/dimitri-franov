@@ -29,7 +29,7 @@
       </nuxt-link>
       <h1 class="text-4xl text-white ml-24">{{ article.title }}</h1>
     </nav>
-    <article class="w-screen lg:mx-64 lg:my-15 md:mx-20 md:my-10 mx-10">
+    <article class="w-screen lg:px-64 lg:my-15 md:px-20 md:my-10 px-10">
       <h2 class="text-xl font-display w-full mt-24 opacity-75">
         {{ article.subtitle }}
       </h2>

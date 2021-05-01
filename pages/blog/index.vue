@@ -39,12 +39,12 @@
         class="article border px-3 py-2 mx-2 mt-2 font-light"
         :to="articleLink(article.slug)"
       >
-        <p>sohn</p>
+        <p>{{ article.category }}</p>
         <h2 class="uppercase text-2xl">
           {{ article.title }}
         </h2>
         <p class="text-lg">
-          {{ article.description }}
+          {{ article.subtitle }}
         </p>
       </nuxt-link>
     </article>
