@@ -39,6 +39,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/robots',
+    '@nuxtjs/sentry',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -60,6 +61,15 @@ export default {
       short_name: 'Dimitri',
       description:
         'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
+    },
+  },
+  sentry: {
+    dsn: 'https://cb594b04589548b397ceeaa335b961bd@o452704.ingest.sentry.io/5440528', // Enter your project's DSN here
+    // Additional Module Options go here
+    // https://sentry.nuxtjs.org/sentry/options
+    config: {
+      // Add native Sentry config here
+      // https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/
     },
   },
 }
