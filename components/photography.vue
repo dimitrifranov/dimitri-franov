@@ -7,7 +7,7 @@
     <template v-slot:text>
       <div>
         <section class="grid md:grid-cols-3 grid-cols-1 md:m-1">
-          <img
+          <!-- <img
             v-for="(photo, id) in photos"
             :key="id"
             class="image"
@@ -18,7 +18,7 @@
             }"
             :src="photo.photo"
             :alt="photo.title"
-          />
+          /> -->
         </section>
         <nuxt-link
           to="/photos"
