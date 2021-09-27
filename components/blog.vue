@@ -5,13 +5,23 @@
     @widthChange="widthChange"
     @scroll="scroll"
   >
-    <template v-slot:title>BLOG</template>
-    <template v-slot:next_page>
+    <template #title>BLOG</template>
+    <template #next_page>
       <slot name="next_page" />
     </template>
-    <template v-slot:text>
+    <template #text>
       <article
-        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-2 h-5/6 w-full articles lg:p-4 lg:pb-2 pb-2"
+        class="
+          grid
+          lg:grid-cols-3
+          md:grid-cols-2
+          grid-cols-1 grid-rows-2
+          h-5/6
+          w-full
+          articles
+          lg:p-4 lg:pb-2
+          pb-2
+        "
       >
         <nuxt-link
           v-for="article in articles"
@@ -34,12 +44,23 @@
       <nuxt-link
         to="/blog"
         :style="{ fontSize: height / 45 + 'px' }"
-        class="text-white h-1/6 border border-white font-light px-2 py-1 mb-2 mr-6 float-right more"
+        class="
+          text-white
+          h-1/6
+          border border-white
+          font-light
+          px-2
+          py-1
+          mb-2
+          mr-6
+          float-right
+          more
+        "
       >
         mehr Artikel
       </nuxt-link>
     </template>
-    <template v-slot:content>
+    <template #content>
       <!-- <div id="canvas"></div>    :style="{ height: height + 'px', width: width + 'px' }"     
 -->
       <!-- <canvas id="canvas" :height="height" :width="width"></canvas> -->

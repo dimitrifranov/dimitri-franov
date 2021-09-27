@@ -1,7 +1,7 @@
 <template>
   <baseComponent pk="contact" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>KONTAKT</template>
-    <template v-slot:text>
+    <template #title>KONTAKT</template>
+    <template #text>
       <div
         class="prose lg:prose-lg h-full"
         :style="{ fontSize: height / 30 + 'px', padding: height / 30 + 'px' }"
@@ -15,10 +15,17 @@
         <p>Email: dimitri@franov.ch</p>
       </div>
     </template>
-    <template v-slot:next_page>
+    <template #next_page>
       <div
         :style="{ fontSize: height / 30 + 'px' }"
-        class="h-full w-full text-black bg-ligthBlue center-items cursor-pointer"
+        class="
+          h-full
+          w-full
+          text-black
+          bg-ligthBlue
+          center-items
+          cursor-pointer
+        "
         @click="scroll(0)"
       >
         Zurück zum Anfang

@@ -28,11 +28,11 @@
           </section>
           <section class="new_page">
             <blog :articles="articles" @scroll="scrollTo">
-              <template v-slot:next_page>
+              <template #next_page>
                 <coding @scroll="scrollTo">
-                  <template v-slot:next_page>
+                  <template #next_page>
                     <photography :photos="photos" @scroll="scrollTo">
-                      <template v-slot:next_page>
+                      <template #next_page>
                         <contact @scroll="scrollTo">
                           <!-- <template v-slot:next_page>
                             <div
@@ -134,6 +134,13 @@ export default {
       windowHeight: 0,
     }
   },
+  head() {
+    return {
+      script: [
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+      ],
+    }
+  },
   computed: {
     isTooWide() {
       if (this.windowHeight * 1.61803 < this.windowWidth) return true
@@ -203,7 +210,7 @@ export default {
       tl.to(pages[0], {
         scale,
       })
-      scale *= 2.61802
+      scale *= 2.61803
     }
     // const proxy = { blur: 0 }
     // // const blurSetter = gsap.quickSetter('.new_page', 'filter': 'blur', 'px') // fast
@@ -250,13 +257,6 @@ export default {
     scrollToInstant(section) {
       gsap.to(window, { duration: 0.4, scrollTo: section * this.windowWidth })
     },
-  },
-  head() {
-    return {
-      script: [
-        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
-      ],
-    }
   },
 }
 </script>

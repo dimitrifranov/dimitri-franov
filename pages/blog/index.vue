@@ -30,7 +30,18 @@
       <h1 class="text-4xl text-white ml-24">Blog</h1>
     </nav>
     <article
-      class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-6 h-full w-full articles p-4 pb-2 pt-16"
+      class="
+        grid
+        lg:grid-cols-3
+        md:grid-cols-2
+        grid-cols-1 grid-rows-6
+        h-full
+        w-full
+        articles
+        p-4
+        pb-2
+        pt-16
+      "
     >
       <nuxt-link
         v-for="article in articles"
