@@ -32,15 +32,6 @@
             />
           </section>
           <section class="new_page">
-<<<<<<< HEAD
-            <blog :articles="articles" @scroll="scrollTo">
-              <template #next_page>
-                <coding @scroll="scrollTo">
-                  <template #next_page>
-                    <photography :photos="photos" @scroll="scrollTo">
-                      <template #next_page>
-                        <contact @scroll="scrollTo">
-=======
             <blog
               :articles="articles"
               :windowstyle="windowStyle"
@@ -56,7 +47,6 @@
                     >
                       <template #next_page>
                         <contact :windowstyle="windowStyle" @scroll="scrollTo">
->>>>>>> floatPfix
                           <!-- <template v-slot:next_page>
                             <div
                               class="h-full w-full text-white bg-ligthBlue"

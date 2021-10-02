@@ -1,7 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <baseComponent pk="contact" @heightChange="heightChange" @scroll="scroll">
-=======
   <baseComponent
     id="4"
     pk="contact"
@@ -9,7 +6,6 @@
     @heightChange="heightChange"
     @scroll="scroll"
   >
->>>>>>> floatPfix
     <template #title>KONTAKT</template>
     <template #text>
       <div
