@@ -6,7 +6,17 @@
       name="button"
       v-bind="$attrs"
       :class="buttonClass"
-      class="font-light bg-darkBlue hover:bg-darkBlue text-white hover:text-grey transition-colors duration-200 disabled:opacity-75 disbaled:text-error"
+      class="
+        font-light
+        bg-darkBlue
+        hover:bg-darkBlue
+        text-white
+        hover:text-grey
+        transition-colors
+        duration-200
+        disabled:opacity-75
+        disbaled:text-error
+      "
       @click="$emit('clicked')"
     >
       <slot />

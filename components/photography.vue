@@ -1,10 +1,16 @@
 <template>
-  <baseComponent pk="photo" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>FOTOGRAFIE</template>
-    <template v-slot:next_page>
+  <baseComponent
+    id="3"
+    pk="photo"
+    :windowstyle="windowstyle"
+    @heightChange="heightChange"
+    @scroll="scroll"
+  >
+    <template #title>FOTOGRAFIE</template>
+    <template #next_page>
       <slot name="next_page" />
     </template>
-    <template v-slot:text>
+    <template #text>
       <div>
         <section class="grid md:grid-cols-3 grid-cols-1 md:m-1">
           <!-- <img
@@ -43,6 +49,12 @@ export default {
       type: Array,
       default() {
         return []
+      },
+    },
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
       },
     },
   },

@@ -1,10 +1,16 @@
 <template>
-  <baseComponent pk="contact" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>KONTAKT</template>
-    <template v-slot:text>
+  <baseComponent
+    id="4"
+    pk="contact"
+    :windowstyle="windowstyle"
+    @heightChange="heightChange"
+    @scroll="scroll"
+  >
+    <template #title>KONTAKT</template>
+    <template #text>
       <div
         class="prose lg:prose-lg h-full"
-        :style="{ fontSize: height / 30 + 'px', padding: height / 30 + 'px' }"
+        :style="{ fontSize: height / 40 + 'px', padding: height / 30 + 'px' }"
       >
         <h3>Ich bin erreichbar unter folgender Addresse:</h3>
         <p>
@@ -15,10 +21,17 @@
         <p>Email: dimitri@franov.ch</p>
       </div>
     </template>
-    <template v-slot:next_page>
+    <template #next_page>
       <div
         :style="{ fontSize: height / 30 + 'px' }"
-        class="h-full w-full text-black bg-ligthBlue center-items cursor-pointer"
+        class="
+          h-full
+          w-full
+          text-black
+          bg-ligthBlue
+          center-items
+          cursor-pointer
+        "
         @click="scroll(0)"
       >
         Zurück zum Anfang
@@ -31,6 +44,14 @@
 import baseComponent from './baseComponent.vue'
 export default {
   components: { baseComponent },
+  props: {
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
+  },
   data() {
     return {
       height: 0,
