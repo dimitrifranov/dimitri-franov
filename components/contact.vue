@@ -1,10 +1,20 @@
 <template>
+<<<<<<< HEAD
   <baseComponent pk="contact" @heightChange="heightChange" @scroll="scroll">
+=======
+  <baseComponent
+    id="4"
+    pk="contact"
+    :windowstyle="windowstyle"
+    @heightChange="heightChange"
+    @scroll="scroll"
+  >
+>>>>>>> floatPfix
     <template #title>KONTAKT</template>
     <template #text>
       <div
         class="prose lg:prose-lg h-full"
-        :style="{ fontSize: height / 30 + 'px', padding: height / 30 + 'px' }"
+        :style="{ fontSize: height / 40 + 'px', padding: height / 30 + 'px' }"
       >
         <h3>Ich bin erreichbar unter folgender Addresse:</h3>
         <p>
@@ -38,6 +48,14 @@
 import baseComponent from './baseComponent.vue'
 export default {
   components: { baseComponent },
+  props: {
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
+  },
   data() {
     return {
       height: 0,

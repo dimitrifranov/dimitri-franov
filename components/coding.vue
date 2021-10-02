@@ -1,13 +1,19 @@
 <template>
-  <baseComponent pk="coding" @heightChange="heightChange" @scroll="scroll">
-    <template v-slot:title>TSCHAU.APP</template>
-    <template v-slot:next_page>
+  <baseComponent
+    id="coding"
+    pk="coding"
+    :windowstyle="windowstyle"
+    @heightChange="heightChange"
+    @scroll="scroll"
+  >
+    <template #title>TSCHAU.APP</template>
+    <template #next_page>
       <slot name="next_page" />
     </template>
-    <template v-slot:text>
+    <template #text>
       <section
         :style="{
-          fontSize: height / 50 + 'px',
+          fontSize: height / 60 + 'px',
         }"
         class="prose lg:prose-lg lg:mx-2 lg:my-2 mx-1 my-1"
       >
@@ -35,7 +41,7 @@
         >
       </section>
     </template>
-    <template v-slot:content> </template>
+    <template #content> </template>
   </baseComponent>
 </template>
 
@@ -44,6 +50,14 @@ import baseComponent from '@/components/baseComponent.vue'
 export default {
   components: {
     baseComponent,
+  },
+  props: {
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
   },
   data() {
     return {

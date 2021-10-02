@@ -1,8 +1,15 @@
 <template>
-  <div :id="pk" class="contain new_page page">
+  <div :id="pk" class="contain new_page page" :style="scaledStyle">
     <section
-      class="title center-items font-display"
-      :style="{ fontSize: height / 20 + 'px' }"
+      class="
+        title
+        center-items
+        font-display
+        text-2xl
+        sm:text-4xl
+        2xl:text-5xl
+        3xl:text-7xl
+      "
     >
       <slot name="title" />
     </section>
@@ -10,7 +17,7 @@
       <img
         src="equation.png"
         alt="equation"
-        :style="{ height: height / 6 + 'px' }"
+        class="h-24 sm:h-36 2xl:h-40 3xl:h-56"
       />>
     </section>
     <section class="next_page">
@@ -22,7 +29,15 @@
     <section class="content">
       <!-- <slot name="content" /> -->
       <div class="content center-items w-full h-full flex flex-col">
-        <ul class="text-black" :style="{ fontSize: width / 45 + 'px' }">
+        <ul
+          class="
+            text-black text-lg
+            sm:text-2xl
+            xl:text-3xl
+            2xl:text-4xl
+            3xl:text-5xl
+          "
+        >
           <li class="hover:text-white cursor-pointer" @click="scrollTo(0)">
             Home
           </li>
@@ -51,6 +66,16 @@ export default {
       type: String,
       default: 'index',
     },
+    id: {
+      type: String,
+      default: '1',
+    },
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
   },
   data() {
     return {
@@ -58,17 +83,44 @@ export default {
       height: 0,
     }
   },
+  computed: {
+    scaleFactor() {
+      // if (this.id === '2') return 1
+      // else return 0.618 ** parseInt(this.id)
+      return 0.3819
+    },
+    scaledStyle() {
+      return {
+        transform: `scale(${this.scaleFactor})`,
+        ...this.windowstyle,
+      }
+    },
+  },
   mounted() {
-    const pk = this.pk
+    // const pk = this.pk
+    // setTimeout(() => {
+    //   this.width = document.getElementById(pk).clientWidth
+    //   this.height = document.getElementById(pk).clientHeight
+    //   this.$emit('heightChange', this.height)
+    //   this.$emit('widthChange', this.width)
+    //   window.addEventListener('resize', () => {
+    //     setTimeout(() => {
+    //       this.width = document.getElementById(pk).clientWidth
+    //       this.height = document.getElementById(pk).clientHeight
+    //       this.$emit('heightChange', this.height)
+    //       this.$emit('widthChange', this.width)
+    //     }, 1)
+    //   })
+    // }, 1)
     setTimeout(() => {
-      this.width = document.getElementById(pk).clientWidth
-      this.height = document.getElementById(pk).clientHeight
+      this.width = document.documentElement.clientWidth
+      this.height = document.documentElement.clientHeight
       this.$emit('heightChange', this.height)
       this.$emit('widthChange', this.width)
       window.addEventListener('resize', () => {
         setTimeout(() => {
-          this.width = document.getElementById(pk).clientWidth
-          this.height = document.getElementById(pk).clientHeight
+          this.width = document.documentElement.clientWidth
+          this.height = document.documentElement.clientHeight
           this.$emit('heightChange', this.height)
           this.$emit('widthChange', this.width)
         }, 1)
@@ -119,9 +171,13 @@ export default {
   grid-area: text;
 }
 .page {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  /* width: 100%;
+  height: 100%; */
+  top: 0;
+  right: 0;
   transform-origin: top right;
+  /* transform: scale(0.3819); */
 }
 
 .new_page {

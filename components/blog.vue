@@ -1,13 +1,13 @@
 <template>
-  <baseComponent
-    pk="blog"
-    @heightChange="heightChange"
-    @widthChange="widthChange"
-    @scroll="scroll"
-  >
+  <baseComponent id="1" pk="blog" :windowstyle="windowstyle" @scroll="scroll">
     <template #title>BLOG</template>
     <template #next_page>
-      <slot name="next_page" />
+      <slot
+        name="next_page"
+        @scroll="scroll"
+        @heightChange="heightChange"
+        @widthChange="widthChange"
+      />
     </template>
     <template #text>
       <article
@@ -27,25 +27,21 @@
           v-for="article in articles"
           :key="article.slug"
           :style="{ borderWidth: '10%' }"
-          class="article px-1 py-1 lg:px-3 lg:py-2 mx-2 mt-2 font-light bg-blue"
+          class="article px-2 py-2 lg:px-3 lg:py-2 mx-2 mt-2 font-light bg-blue"
           :to="articleLink(article.slug)"
         >
-          <p :style="{ fontSize: height / 50 + 'px' }">
+          <p class="text-sm">
             {{ article.category }}
           </p>
-          <h3
-            class="uppercase truncate"
-            :style="{ fontSize: height / 35 + 'px' }"
-          >
+          <h3 class="uppercase truncate text-lg">
             {{ article.title }}
           </h3>
         </nuxt-link>
       </article>
       <nuxt-link
         to="/blog"
-        :style="{ fontSize: height / 45 + 'px' }"
         class="
-          text-white
+          text-base text-white
           h-1/6
           border border-white
           font-light
@@ -80,6 +76,12 @@ export default {
       type: Array,
       default() {
         return []
+      },
+    },
+    windowstyle: {
+      type: Object,
+      default() {
+        return {}
       },
     },
   },

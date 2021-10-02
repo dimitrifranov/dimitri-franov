@@ -19,6 +19,9 @@ module.exports = {
       display: ['Montserrat'],
     },
     extend: {
+      screens: {
+        '3xl': '2000px',
+      },
       spacing: {
         half: '50%',
       },

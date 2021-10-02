@@ -4,17 +4,22 @@
     <div class="flex justify-center background">
       <div class="containing page">
         <div id="home" class="contain" :style="windowStyle">
-          <header
-            :style="{ fontSize: height / 19 + 'px' }"
-            class="title font-display center-items"
-          >
+          <header class="title font-display center-items">
             <img
               src="logo.png"
               alt="logo"
-              class="h-32 sm:h-40"
-              :style="{ height: height / 6 + 'px' }"
+              class="h-24 sm:h-36 2xl:h-40 3xl:h-56"
             />
-            <h1 class="leading-none name">
+            <h1
+              class="
+                leading-none
+                name
+                text-2xl
+                sm:text-4xl
+                2xl:text-5xl
+                3xl:text-7xl
+              "
+            >
               <p class="font-semibold">DIMITRI</p>
               <p class="font-light">FRANOV</p>
             </h1>
@@ -23,10 +28,11 @@
             <img
               src="equation.png"
               alt="equation"
-              :style="{ height: height / 6 + 'px' }"
+              class="h-24 sm:h-36 2xl:h-40 3xl:h-56"
             />
           </section>
           <section class="new_page">
+<<<<<<< HEAD
             <blog :articles="articles" @scroll="scrollTo">
               <template #next_page>
                 <coding @scroll="scrollTo">
@@ -34,6 +40,23 @@
                     <photography :photos="photos" @scroll="scrollTo">
                       <template #next_page>
                         <contact @scroll="scrollTo">
+=======
+            <blog
+              :articles="articles"
+              :windowstyle="windowStyle"
+              @scroll="scrollTo"
+            >
+              <template #next_page>
+                <coding :windowstyle="windowStyle" @scroll="scrollTo">
+                  <template #next_page>
+                    <photography
+                      :photos="photos"
+                      :windowstyle="windowStyle"
+                      @scroll="scrollTo"
+                    >
+                      <template #next_page>
+                        <contact :windowstyle="windowStyle" @scroll="scrollTo">
+>>>>>>> floatPfix
                           <!-- <template v-slot:next_page>
                             <div
                               class="h-full w-full text-white bg-ligthBlue"
@@ -52,7 +75,16 @@
           </section>
           <section class="text">
             <article
-              class="prose lg:prose-lg xl:prose-xl mx-20 my-20 overflow-hidden"
+              class="
+                prose-sm
+                sm:prose
+                xl:prose-lg
+                2xl:prose-xl
+                3xl:prose-2xl
+                mx-10
+                my-10
+                overflow-hidden
+              "
             >
               <h3>Hallo, ich bin Dimitri Franov</h3>
               <p>
@@ -60,21 +92,22 @@
                 gelangen kannst du gerne scrollen oder auf das
                 Inhaltsverzeichnis rechts drücken.
               </p>
-              <p>
+              <!-- <p>
                 Auf der Webseite findest du verschiedene Blogbeiträge zu
                 verschiedenen Themen, meine Projekte und Fotografien.
-              </p>
-              <!-- <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet.
               </p> -->
             </article>
           </section>
           <div class="content center-items">
-            <ul class="text-black" :style="{ fontSize: width / 45 + 'px' }">
+            <ul
+              class="
+                text-black text-lg
+                sm:text-2xl
+                xl:text-3xl
+                2xl:text-4xl
+                3xl:text-5xl
+              "
+            >
               <li class="cursor-pointer hover:text-white" @click="scrollTo(0)">
                 Home
               </li>
@@ -105,14 +138,14 @@ import scrollTrigger from 'gsap/ScrollTrigger'
 import scrollToPlugin from 'gsap/ScrollToPlugin'
 import coding from '@/components/coding.vue'
 // import '@/scripts/background.js'
-// import Background from '~/components/background.vue'
+import Background from '~/components/background.vue'
 import Photography from '~/components/photography.vue'
 import contact from '~/components/contact.vue'
 import Blog from '~/components/blog.vue'
 export default {
   components: {
     coding,
-    // Background,
+    Background,
     Photography,
     contact,
     Blog,
@@ -156,7 +189,7 @@ export default {
       return this.windowWidth * 1.61803
     },
     windowStyle() {
-      if (this.windowWidth < 640) {
+      if (this.windowWidth <= 1024) {
         return {
           width: '100vw',
           height: this.phiMobileHeight + 'px',
@@ -184,7 +217,7 @@ export default {
       this.windowWidth = window.innerWidth
       this.windowHeight = window.innerHeight
     }
-    if (this.windowWidth < this.windowHeight) this.articles.length = 3
+    if (this.windowWidth < this.windowHeight) this.articles.length = 2
     setTimeout(() => {
       this.width = document.getElementById('home').clientWidth
       this.height = document.getElementById('home').clientHeight
@@ -255,7 +288,7 @@ export default {
       gsap.to(window, { duration: 0.5, scrollTo: section * this.windowWidth })
     },
     scrollToInstant(section) {
-      gsap.to(window, { duration: 0.4, scrollTo: section * this.windowWidth })
+      gsap.to(window, { duration: 0.001, scrollTo: section * this.windowWidth })
     },
   },
 }
@@ -270,7 +303,7 @@ export default {
   width: 100vw;
   transform-origin: top right;
 }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 1024px) {
   .contain {
     display: grid;
     grid-template-columns: 1.61803fr 1fr 1.61803fr;
@@ -281,7 +314,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 1024px) {
   .contain {
     display: grid;
     grid-template-columns: 1.61803fr 1fr;
