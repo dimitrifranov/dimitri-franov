@@ -98,19 +98,34 @@
                 3xl:text-5xl
               "
             >
-              <li class="cursor-pointer hover:text-white" @click="scrollTo(0)">
+              <li
+                class="cursor-pointer hover:text-white md:pb-1 3xl:pb-2"
+                @click="scrollTo(0)"
+              >
                 Home
               </li>
-              <li class="cursor-pointer hover:text-white" @click="scrollTo(1)">
+              <li
+                class="cursor-pointer hover:text-white md:pb-1 3xl:pb-2"
+                @click="scrollTo(1)"
+              >
                 Blog
               </li>
-              <li class="cursor-pointer hover:text-white" @click="scrollTo(2)">
+              <li
+                class="cursor-pointer hover:text-white md:pb-1 3xl:pb-2"
+                @click="scrollTo(2)"
+              >
                 Projekte
               </li>
-              <li class="cursor-pointer hover:text-white" @click="scrollTo(3)">
+              <li
+                class="cursor-pointer hover:text-white md:pb-1 3xl:pb-2"
+                @click="scrollTo(3)"
+              >
                 Fotografie
               </li>
-              <li class="cursor-pointer hover:text-white" @click="scrollTo(4)">
+              <li
+                class="cursor-pointer hover:text-white md:pb-1 3xl:pb-2"
+                @click="scrollTo(4)"
+              >
                 Kontakt
               </li>
             </ul>
