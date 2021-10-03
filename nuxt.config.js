@@ -59,7 +59,7 @@ export default {
     },
     manifest: {
       name: 'Dimitri Franov',
-      short_name: 'Dimitri',
+      short_name: 'D. Franov',
       description:
         'Hallo, ich bin Dimitri Franov und das ist meine Homepage. Hier findest du meinen Blog und meine Projekte. Viel Spass! - Dimitri',
     },

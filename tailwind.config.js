@@ -17,6 +17,7 @@ module.exports = {
     },
     fontFamily: {
       display: ['Montserrat'],
+      body: ['Roboto Slab'],
     },
     extend: {
       screens: {

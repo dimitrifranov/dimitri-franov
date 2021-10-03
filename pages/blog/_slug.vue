@@ -34,7 +34,7 @@
         {{ article.subtitle }}
       </h2>
       <nuxt-content
-        class="prose lg:prose-lg text-black mt-8"
+        class="prose lg:prose-lg text-black mt-8 font-body"
         :document="article"
       />
     </article>
