@@ -40,6 +40,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/robots',
     '@nuxtjs/sentry',
+    '@nuxtjs/google-fonts',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -70,6 +71,12 @@ export default {
     config: {
       // Add native Sentry config here
       // https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/
+    },
+  },
+  googleFonts: {
+    families: {
+      Montserrat: true,
+      'Roboto+Slab': true,
     },
   },
 }

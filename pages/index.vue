@@ -4,9 +4,9 @@
     <div class="flex justify-center background">
       <div class="containing page">
         <div id="home" class="contain" :style="windowStyle">
-          <header class="title font-display center-items">
+          <header class="title center-items">
             <img
-              src="logo.png"
+              src="logo.svg"
               alt="logo"
               class="h-24 sm:h-36 2xl:h-40 3xl:h-56"
             />
