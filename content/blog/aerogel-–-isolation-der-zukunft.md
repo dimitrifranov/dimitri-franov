@@ -3,9 +3,10 @@ title: Aerogel – Isolation der Zukunft?
 date: 2021-05-01T08:57:59.586Z
 description: Was ist Aerogel und inwiefern kann es uns helfen denkmalgeschützte
   Gebäude energieeffizient umzubauen?
+category: Umwelt
+image: /img/67cbe9e249_82203_aerogel.jpg
 subtitle: Was ist Aerogel und inwiefern kann es uns helfen denkmalgeschützte
   Gebäude energieeffizient umzubauen?
-category: Umwelt
 ---
 ## Was ist Aerogel?
 
