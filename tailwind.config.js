@@ -23,6 +23,10 @@ module.exports = {
       screens: {
         '3xl': '2000px',
       },
+      zIndex: {
+        '-10': '-10',
+        '-20': '-20',
+      },
       spacing: {
         half: '50%',
       },

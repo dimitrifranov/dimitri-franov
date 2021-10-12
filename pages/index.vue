@@ -222,7 +222,7 @@ export default {
       this.windowWidth = window.innerWidth
       this.windowHeight = window.innerHeight
     }
-    if (this.windowWidth < this.windowHeight) this.articles.length = 2
+    if (this.windowWidth < this.windowHeight) this.articles.length = 4
     setTimeout(() => {
       this.width = document.getElementById('home').clientWidth
       this.height = document.getElementById('home').clientHeight

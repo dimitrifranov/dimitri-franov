@@ -10,51 +10,43 @@
       />
     </template>
     <template #text>
-      <article
-        class="
-          grid
-          lg:grid-cols-3
-          md:grid-cols-2
-          grid-cols-1 grid-rows-2
-          h-5/6
-          w-full
-          articles
-          lg:p-4 lg:pb-2
-          pb-2
-        "
-      >
-        <nuxt-link
-          v-for="article in articles"
-          :key="article.slug"
-          :style="{ borderWidth: '10%' }"
-          class="article px-2 py-2 lg:px-3 lg:py-2 mx-2 mt-2 font-light bg-blue"
-          :to="articleLink(article.slug)"
+      <div class="overflow-hidden">
+        <div
+          class="
+            grid
+            lg:grid-cols-3
+            grid-cols-1
+            lg:grid-rows-2
+            w-full
+            articles
+            lg:p-4 lg:pb-2
+            pb-3
+          "
         >
-          <p class="text-sm">
-            {{ article.category }}
-          </p>
-          <h3 class="uppercase truncate text-lg">
-            {{ article.title }}
-          </h3>
+          <articlePreview
+            v-for="article in articles"
+            :key="article.slug"
+            :article="article"
+          />
+        </div>
+        <nuxt-link
+          to="/blog"
+          class="
+            text-base text-white
+            h-1/6
+            border border-white
+            font-light
+            px-2
+            py-1
+            mb-2
+            mr-6
+            float-right
+            more
+          "
+        >
+          mehr Artikel
         </nuxt-link>
-      </article>
-      <nuxt-link
-        to="/blog"
-        class="
-          text-base text-white
-          h-1/6
-          border border-white
-          font-light
-          px-2
-          py-1
-          mb-2
-          mr-6
-          float-right
-          more
-        "
-      >
-        mehr Artikel
-      </nuxt-link>
+      </div>
     </template>
     <template #content>
       <!-- <div id="canvas"></div>    :style="{ height: height + 'px', width: width + 'px' }"     
@@ -189,18 +181,6 @@ export default {
 </script>
 
 <style scoped>
-.article {
-  border-width: 1px;
-  transition: all 200ms ease;
-  /* z-index: 10; */
-}
-.article:hover {
-  /* position: fixed; */
-  transform: scale(1.2);
-}
-.uppercase {
-  text-transform: uppercase;
-}
 .word-wrap {
   word-wrap: break-word;
   word-break: break-all;
