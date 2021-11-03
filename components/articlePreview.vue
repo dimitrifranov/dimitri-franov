@@ -12,18 +12,20 @@
       relative
       text-black
       bg-white
+      overflow-hidden
     "
     :to="articleLink"
-    @click="toggle"
+    @click="toggleSmall"
+    @mouseenter="toggleBig"
+    @mouseleave="expanded = false"
   >
-    <div
-      :style="bgStyle"
-      class="bg-fixed bg absolute opacity-50 h-full w-full"
-    ></div>
-    <article>
-      <div :style="whiteBg" class="block relative w-full z-10">
+    <div :style="bgStyle" class="bg-fixed bg absolute h-full w-full"></div>
+    <article class="h-full">
+      <div :style="titleBG" class="block relative w-full z-10 px-3 py-2 trans">
         <p
+          :style="themeStyle"
           class="
+            trans
             text-xs
             sm:text-base
             md:text-xl
@@ -36,7 +38,9 @@
           {{ article.category }}
         </p>
         <h3
+          :style="headingStyle"
           class="
+            trans
             relative
             z-10
             uppercase
@@ -54,22 +58,22 @@
       </div>
       <p
         v-if="expanded"
-        :style="whiteBg"
+        :style="{ backgroundColor: 'rgba(255,255,255,0.5)' }"
         class="text-black text-base w-full relative z-10 px-3 py-2 my-3"
       >
         {{ article.description }}
       </p>
-      <div class="z-10 relative hide">
+      <div v-if="expanded" class="z-10 relative">
         <nuxt-link
-          to="/"
+          :to="articleLink"
           class="
-            h-6
+            h-8
             2xl:h-12
-            w-16
+            w-24
             2xl:w-32
             bg-darkBlue
             block
-            text-xs
+            text-base
             2xl:text-lg
             text-center text-white
           "
@@ -93,14 +97,41 @@ export default {
   data() {
     return {
       expanded: false,
+      windowWidth: 0,
     }
   },
   computed: {
-    whiteBg() {
-      return this.expanded ? { backgroundColor: 'white' } : {}
+    headingStyle() {
+      if (this.expanded && this.windowWidth > 1024)
+        return {
+          fontSize: '1rem',
+        }
+      else return {}
+    },
+    titleBG() {
+      if (this.expanded && this.windowWidth > 1024)
+        return {
+          paddingTop: '0',
+          paddingBottom: '0',
+          backgroundColor: 'rgba(255,255,255,0.5)',
+          height: '30%',
+        }
+      else if (!this.expanded && this.windowWidth > 1024)
+        return {
+          backgroundColor: 'rgba(255,255,255,0.3)',
+          height: '100%',
+        }
+      else return { backgroundColor: 'rgba(255,255,255,0.3)' }
+    },
+    themeStyle() {
+      if (this.expanded && this.windowWidth > 1024)
+        return {
+          fontSize: '0.5rem',
+        }
+      else return {}
     },
     articleStyle() {
-      if (this.expanded)
+      if (this.expanded && this.windowWidth < 1024)
         return {
           height: '16rem',
         }
@@ -120,9 +151,18 @@ export default {
       }
     },
   },
+  mounted() {
+    this.windowWidth = window.innerWidth
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth
+    }
+  },
   methods: {
-    toggle() {
-      this.expanded = !this.expanded
+    toggleSmall() {
+      if (this.windowWidth < 1024) this.expanded = !this.expanded
+    },
+    toggleBig() {
+      if (this.windowWidth >= 1024) this.expanded = !this.expanded
     },
   },
 }
@@ -145,5 +185,9 @@ export default {
   .hide {
     display: none;
   }
+}
+.trans {
+  transition-property: height, font-size, padding;
+  transition-duration: 250ms;
 }
 </style>
