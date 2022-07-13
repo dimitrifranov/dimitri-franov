@@ -16,7 +16,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sentry": "^5.1.6",
-    "@tailwindcss/typography": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.4",
     "complex.js": "^2.0.13",
     "core-js": "^3.19.1",
     "gsap": "^3.6.1",
